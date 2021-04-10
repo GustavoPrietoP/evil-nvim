@@ -1,5 +1,5 @@
    " Dashboard
-    let g:dashboard_session_directory = '/home/gustavo/.config/nvim/.sessions'
+    let g:dashboard_session_directory = $HOME..'/.config/nvim/.sessions'
     let g:dashboard_default_executive = 'telescope'
     let g:dashboard_custom_shortcut = {
                 \ 'last_session'       : 'SPC s l',
