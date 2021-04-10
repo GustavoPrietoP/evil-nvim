@@ -1,0 +1,13 @@
+COLORSCHEME='doom-one'
+--[[
+COLORSCHEMES:
+nvcode
+onedark
+aurora
+dracula
+gruvbox
+palenight
+nightfly
+doom-one
+snazzy
+]]
