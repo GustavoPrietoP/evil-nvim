@@ -23,6 +23,9 @@ sudo make CMAKE_BUILD_TYPE=Release install
 cd ~
 sudo rm -r neovim
 ```
+# When Launching
+run `:PackerSync` and restart nvim
+
 # Dope People
 - [hlissner](https://github.com/hlissner) for Doom Emacs :heart:
 - [NTBBloodbath](https://github.com/NTBBloodbath) for Doom-nvim :heart_eyes:
