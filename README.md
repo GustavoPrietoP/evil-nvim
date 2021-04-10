@@ -31,7 +31,7 @@ run `:PackerSync` and restart nvim
 - [NTBBloodbath](https://github.com/NTBBloodbath) for Doom-nvim :heart_eyes:
 - [Chris](https://github.com/ChristianChiarulli) for the colorschemes and helping with the configs :sunglasses:
 # Themes 
-[Doom-one](https://github.com/GustavoPrietoP/doom-one.vim) Enabled by Defualt (Thanks to [NTBBloodbath](https://github.com/NTBBloodbath))
+[Doom-one](https://github.com/GustavoPrietoP/doom-one.vim) Enabled by default (Thanks to [NTBBloodbath](https://github.com/NTBBloodbath))
 
 [nvcode-colorschemes](https://github.com/ChristianChiarulli/nvcode-color-schemes.vim) (Thanks to [Chris](http://github.com/ChristianChiarulli))
 
