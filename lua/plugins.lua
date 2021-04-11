@@ -16,23 +16,23 @@ return require('packer').startup(function(use)
 
     -- NvimTree
     use 'kyazdani42/nvim-tree.lua'
-	use 'kyazdani42/nvim-web-devicons'
+    use 'kyazdani42/nvim-web-devicons'
     -- Lsp
-	use 'neovim/nvim-lspconfig'
-	use 'glepnir/lspsaga.nvim'
+    use 'neovim/nvim-lspconfig'
+    use 'glepnir/lspsaga.nvim'
     use 'hrsh7th/nvim-compe'
-	use 'mfussenegger/nvim-jdtls'
+    use 'mfussenegger/nvim-jdtls'
     use 'kabouzeid/nvim-lspinstall'
-	use 'onsails/lspkind-nvim'
-	use 'ray-x/lsp_signature.nvim'
-	use {'neoclide/coc.nvim', branch = 'release'} -- if you want coc completion remove the coc-settings.json file
+    use 'onsails/lspkind-nvim'
+    use 'ray-x/lsp_signature.nvim'
+    use {'neoclide/coc.nvim', branch = 'release'} -- if you want coc completion remove the coc-settings.json file
     use 'hrsh7th/vim-vsnip'
 
-	-- Colorscheme
+    -- Colorscheme
     use 'christianchiarulli/nvcode-color-schemes.vim'
-	use 'norcalli/nvim-colorizer.lua'
-	use 'bluz71/vim-nightfly-guicolors'
-	use 'GustavoPrietoP/doom-one.vim'
+    use 'norcalli/nvim-colorizer.lua'
+    use 'bluz71/vim-nightfly-guicolors'
+    use 'GustavoPrietoP/doom-one.vim'
     -- Telescope
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
@@ -49,20 +49,20 @@ return require('packer').startup(function(use)
     -- Thing at the bottom lol
     use 'romgrk/barbar.nvim'
 
-	-- Treesitter
+    -- Treesitter
     use 'nvim-treesitter/playground'
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-	use 'GustavoPrietoP/nvim-ts-rainbow' -- my fork, check it out for rainbow parenthesis :)
+    use 'GustavoPrietoP/nvim-ts-rainbow' -- my fork, check it out for rainbow parenthesis :)
 
-	-- Debugger
+    -- Debugger
     use 'mfussenegger/nvim-dap'
 
 	-- Start Screen
-	use 'glepnir/dashboard-nvim'
+    use 'glepnir/dashboard-nvim'
 
 	-- Galaxy Line
-	use 'glepnir/galaxyline.nvim'
+    use 'glepnir/galaxyline.nvim'
 
 	-- Everyone needs a terminal
-	use 'akinsho/nvim-toggleterm.lua'
+    use 'akinsho/nvim-toggleterm.lua'
 end)
