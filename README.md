@@ -26,6 +26,8 @@ sudo rm -r neovim
 # When Launching
 run `:PackerSync` and restart nvim
 
+in order to get your desired language support (autocomplete, diagnostics, code actions) simply type `:LspInstall` and tab through the avaible language servers.
+
 # Dope People
 - [hlissner](https://github.com/hlissner) for Doom Emacs :heart:
 - [NTBBloodbath](https://github.com/NTBBloodbath) for Doom-nvim :heart_eyes:
