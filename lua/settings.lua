@@ -7,8 +7,7 @@ vim.cmd('set scrolloff=4')
 vim.cmd('set shortmess+=c') -- Don't pass messages to |ins-completion-menu|.
 vim.cmd('set smartindent') -- Vim is dumb so just putting this here just in case :)
 vim.cmd('set sw=4') -- Change the number of space characters inserted for indentation
-vim.cmd('set ts=4') -- Insert 2 spaces for a tab
-vim.cmd('set whichwrap+=<,>,[,],h,l') -- move to next line with theses keys
+vim.cmd('set ts=4') -- Insert 2 spaces for a tab vim.cmd('set whichwrap+=<,>,[,],h,l') -- move to next line with theses keys
 vim.cmd('syntax on') -- move to next line with theses keys
 vim.o.hidden = true -- Required to keep multiple buffers open multiple buffers
 vim.wo.wrap = false -- Display long lines as just one line

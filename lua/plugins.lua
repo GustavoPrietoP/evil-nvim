@@ -25,14 +25,15 @@ return require('packer').startup(function(use)
     use 'kabouzeid/nvim-lspinstall'
 	use 'onsails/lspkind-nvim'
 	use 'ray-x/lsp_signature.nvim'
-	use {'neoclide/coc.nvim', branch = 'release'} -- if you want coc completion remove the coc-settings.json file
     use 'hrsh7th/vim-vsnip'
+    use 'mattn/emmet-vim'
+    use "rafamadriz/friendly-snippets"
 
 	-- Colorscheme
     use 'christianchiarulli/nvcode-color-schemes.vim'
 	use 'norcalli/nvim-colorizer.lua'
 	use 'bluz71/vim-nightfly-guicolors'
-	use 'GustavoPrietoP/doom-one.vim'
+	use 'GustavoPrietoP/doom-one.vim' -- The superior colorscheme
     -- Telescope
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
@@ -54,6 +55,7 @@ return require('packer').startup(function(use)
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 	use 'GustavoPrietoP/nvim-ts-rainbow' -- my fork, check it out for rainbow parenthesis :)
 
+    use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
 	-- Debugger
     use 'mfussenegger/nvim-dap'
 

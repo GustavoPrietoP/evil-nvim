@@ -170,40 +170,6 @@ function nv_utils.show_line_diagnostics()
     vim.lsp.diagnostic.show_line_diagnostics()
 end
 
--- git signs
-
-function nv_utils.next_hunk()
-    require('gitsigns').next_hunk()
-end
-
-function nv_utils.prev_hunk()
-    require('gitsigns').prev_hunk()
-end
-
-function nv_utils.stage_hunk()
-    require('gitsigns').stage_hunk()
-end
-
-function nv_utils.undo_stage_hunk()
-    require('gitsigns').undo_stage_hunk()
-end
-
-function nv_utils.reset_hunk()
-    require('gitsigns').reset_hunk()
-end
-
-function nv_utils.reset_buffer()
-    require('gitsigns').reset_buffer()
-end
-
-function nv_utils.preview_hunk()
-    require('gitsigns').preview_hunk()
-end
-
-function nv_utils.blame_line()
-    require('gitsigns').blame_line()
-end
-
 -- misc
 function nv_utils.file_exists(name)
     local f = io.open(name, "r")

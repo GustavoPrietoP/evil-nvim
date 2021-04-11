@@ -36,10 +36,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/barbar.nvim"
   },
-  ["coc.nvim"] = {
-    loaded = true,
-    path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/coc.nvim"
-  },
   ["dashboard-nvim"] = {
     loaded = true,
     path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
@@ -48,9 +44,21 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/doom-one.vim"
   },
+  ["emmet-vim"] = {
+    loaded = true,
+    path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/emmet-vim"
+  },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/friendly-snippets"
+  },
   ["galaxyline.nvim"] = {
     loaded = true,
     path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
   },
   ["lsp_signature.nvim"] = {
     loaded = true,

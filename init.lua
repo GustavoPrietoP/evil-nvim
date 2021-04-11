@@ -16,7 +16,8 @@ require('nv-galaxyline')
 require('nv-indentline')
 require('nv-nvimtree')
 require('nv-terminal')
-
+require('nv-telescope')
+require('nv-emmet')
 -- LSP
 require('nv-compe')
 require('nv-dap')
