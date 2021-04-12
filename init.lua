@@ -31,3 +31,4 @@ require('lsp.init')
 
 -- VIM COMMANDS LOL
 vim.cmd('source ~/.config/nvim/vimscript/dashboard/init.vim')
+vim.cmd('source ~/.config/nvim/vimscript/markdown/init.vim')

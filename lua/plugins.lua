@@ -14,6 +14,8 @@ return require('packer').startup(function(use)
   -- Packer can manage itself as an optional plugin
     use {'wbthomason/packer.nvim'}
 
+	-- Markdown
+	use {'iamcco/markdown-preview.nvim',  run = 'cd app && yarn install'  }
     -- NvimTree
     use 'kyazdani42/nvim-tree.lua'
 	use 'kyazdani42/nvim-web-devicons'
@@ -34,6 +36,7 @@ return require('packer').startup(function(use)
 	use 'norcalli/nvim-colorizer.lua'
 	use 'bluz71/vim-nightfly-guicolors'
 	use 'GustavoPrietoP/doom-one.vim' -- The superior colorscheme
+
     -- Telescope
     use 'nvim-lua/popup.nvim'
     use 'nvim-lua/plenary.nvim'
