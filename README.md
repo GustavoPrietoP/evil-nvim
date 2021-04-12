@@ -2,7 +2,7 @@
 
 ![Demo](https://raw.githubusercontent.com/GustavoPrietoP/neovim/main/screenshot/demo.png)
 # "Minimalism"
-my neovim configuration is aimed on bringing minimalism to the table. It has the looks of [Doom Emacs](https://github.com/hlissner/doom-emacs) but don't let it fool you!
+My Neovim configuration is aimed on bringing minimalism to the table. It has the looks of [Doom Emacs](https://github.com/hlissner/doom-emacs) but don't let it fool you!
 It uses as many lua plugins as possible which results in a lightning fast experience while still maintaining a minimalist, feature rich editing experience!
 
 **NOTE: THIS IS BASED ON MY SYSTEM AND YOU MAY ENCOUNTER SOME ERRORS**
@@ -24,9 +24,9 @@ cd ~
 sudo rm -r neovim
 ```
 # When Launching
-run `:PackerSync` and restart nvim
+run `:PackerSync` and restart Neovim
 
-in order to get your desired language support (autocomplete, diagnostics, code actions) simply type `:LspInstall` and tab through the avaible language servers.
+In order to get your desired language support (autocomplete, diagnostics, code actions) simply type `:LspInstall` and tab through the  available language servers.
 
 # Dope People
 - [hlissner](https://github.com/hlissner) for Doom Emacs :heart:
@@ -48,7 +48,7 @@ in order to get your desired language support (autocomplete, diagnostics, code a
   - [Telescope](https://github.com/nvim-telescope/telescope.nvim)
 
 - LSP
-  - Native Lsp `:h lsp`
+  - Native LSP `:h lsp`
   - [LspConfig](https://github.com/neovim/nvim-lspconfig)
   - [LspInstall](https://github.com/kabouzeid/nvim-lspinstall)
   - [nvim-compe](https://github.com/hrsh7th/nvim-compe)
