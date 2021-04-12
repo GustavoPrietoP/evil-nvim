@@ -8,11 +8,12 @@ It uses as many lua plugins as possible which results in a lightning fast experi
 **NOTE: THIS IS BASED ON MY SYSTEM AND YOU MAY ENCOUNTER SOME ERRORS**
 
 # Requirements
-- Neovim Nightly 0.5+
+- **Neovim Nightly 0.5+**
 - git 2.23+
 - unix or unix-like system
 
 # Get the latest and greatest neovim
+
 ```bash
 cd ~
 sudo rm -r neovim
@@ -25,7 +26,10 @@ sudo rm -r neovim
 # When Launching
 run `:PackerSync` and restart Neovim
 
+# LSP
 In order to get your desired language support (autocomplete, diagnostics, code actions) simply type `:LspInstall` and tab through the  available language servers.
+
+*if anyone is interested in helping me set up language servers for currently unsupported languages, I'm more than happy to accept your pull request*
 
 # Dope People
 - [hlissner](https://github.com/hlissner) for Doom Emacs :heart:
