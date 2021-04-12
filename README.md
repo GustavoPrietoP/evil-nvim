@@ -7,7 +7,6 @@ It uses as many lua plugins as possible which results in a lightning fast experi
 
 **NOTE: THIS IS BASED ON MY SYSTEM AND YOU MAY ENCOUNTER SOME ERRORS**
 
-  
 # Requirements
 - Neovim Nightly 0.5+
 - git 2.23+
@@ -59,4 +58,3 @@ In order to get your desired language support (autocomplete, diagnostics, code a
   - [Auto-pairs](https://github.com/windwp/nvim-autopairs)
   - [Bracket-pair colorizer](https://github.com/GustavoPrietoP/nvim-ts-rainbow)
   - [Colorizer](https://github.com/norcalli/nvim-colorizer.lua)
-  - [Discord-presence](https://github.com/LeonardSSH/coc-discord-rpc)
