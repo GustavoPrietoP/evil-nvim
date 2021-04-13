@@ -1,19 +1,17 @@
 vim.o.completeopt = "menuone,noselect"
-
-require('compe').setup {
-    enabled = true;
-    autocomplete = true;
-    debug = false;
-    min_length = 1;
-    preselect = 'enable';
-    throttle_time = 80;
-    source_timeout = 200;
-    incomplete_delay = 400;
-    max_abbr_width = 100;
-    max_kind_width = 100;
-    max_menu_width = 100;
-    documentation = true;
-
+require'compe'.setup {
+    enabled = true,
+    autocomplete = true,
+    debug = false,
+    min_length = 1,
+    preselect = 'enable',
+    throttle_time = 80,
+    source_timeout = 200,
+    incomplete_delay = 400,
+    max_abbr_width = 200,
+    max_kind_width = 200,
+    max_menu_width = 200,
+    documentation = true,
     source = {
         path = true;
         buffer = true;
@@ -28,8 +26,7 @@ require('compe').setup {
     };
 }
 
-
--- Messy stuff, prob should put this in a different file
+-- messy stuff should probably put all of this in another file lol
 
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -67,4 +64,8 @@ _G.s_tab_complete = function()
         return t "<S-Tab>"
     end
 end
-
+vim.cmd("inoremap <silent><expr> <CR>      compe#confirm('<CR>')") -- hit enter on a selected suggestion and it will complete it for you
+vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
