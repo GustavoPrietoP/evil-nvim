@@ -2,7 +2,7 @@
 
 ![Demo](https://raw.githubusercontent.com/GustavoPrietoP/neovim/main/screenshot/demo.png)
 # "Minimalism"
-My Neovim configuration is aimed on bringing minimalism to the table. It has the looks of [Doom Emacs](https://github.com/hlissner/doom-emacs) but don't let it fool you!
+My Neovim configuration is aimed on bringing *minimalism* to the table. It has the looks of [Doom Emacs](https://github.com/hlissner/doom-emacs) but don't let it fool you!
 It uses as many lua plugins as possible which results in a lightning fast experience while still maintaining a minimalist, feature rich editing experience!
 
 **NOTE: THIS IS BASED ON MY SYSTEM AND YOU MAY ENCOUNTER SOME ERRORS**
