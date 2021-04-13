@@ -3,11 +3,9 @@ require('plugins')
 require('keymappings')
 require('settings')
 require('config')
-
 --colors
 require('colorscheme')
 require('nv-treesitter')
-
 -- Plugs
 require('nvim-autopairs').setup()
 require('nv-barbar')
@@ -19,15 +17,11 @@ require('nv-terminal')
 require('nv-telescope')
 require('nv-emmet')
 -- LSP
+require('lsp.general')
 require('nv-compe')
 require('nv-dap')
-require('lsp.lua-ls')
-require('lsp.python-ls')
-require('lsp.go-ls')
-require('lsp.rs-ls')
-require('lsp.ts-js')
-require('nv-utils')
 require('lsp.init')
+require('nv-utils')
 
 -- VIM COMMANDS LOL
 vim.cmd('source ~/.config/nvim/vimscript/dashboard/init.vim')
