@@ -13,7 +13,6 @@ vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', {silent = true})
-
 -- 🖕escape (not much explaining to do)
 vim.api.nvim_set_keymap('i', 'jk', '<ESC>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('i', 'kj', '<ESC>', {noremap = true, silent = true})
@@ -32,13 +31,24 @@ vim.cmd('tnoremap <Esc> <C-\\><C-n>') -- get out of terminal insert mode into no
 vim.api.nvim_set_keymap('n', '<Leader>f', ':Telescope oldfiles<CR>', {silent = true})
 
 -- tab complete
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+--vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+--im.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+--im.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+--im.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
 -- Markdown Preview keybindings
 vim.cmd('nmap <C-m> <Plug>MarkdownPreviewToggle')
+
+--============================--
+-- Splits resizing keymappings--
+--============================--
+
+vim.cmd([[
+  nnoremap <silent> <C-Up>    :resize -2<CR>
+  nnoremap <silent> <C-Down>  :resize +2<CR>
+  nnoremap <silent> <C-Right>  :vertical resize -2<CR>
+  nnoremap <silent> <C-Left>  :vertical resize +2<CR>
+]])
 
 --=====================--
 --    Disable keys     --
