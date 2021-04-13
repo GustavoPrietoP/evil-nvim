@@ -1,6 +1,5 @@
 vim.fn.sign_define("LspDiagnosticsSignError",
-                   {texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError"})
-vim.fn.sign_define("LspDiagnosticsSignWarning", {texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning"})
+                   {texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError"}) vim.fn.sign_define("LspDiagnosticsSignWarning", {texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning"})
 vim.fn.sign_define("LspDiagnosticsSignHint",
                    {texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint"})
 vim.fn.sign_define("LspDiagnosticsSignInformation",
@@ -54,7 +53,7 @@ vim.cmd('command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
  vim.lsp.diagnostic.on_publish_diagnostics, {
    virtual_text = {
-     prefix = " ",
+     prefix = " ", -- change this to whatever you want your diagnostic icons to be
    },
  }
 )
@@ -80,7 +79,6 @@ local function documentHighlight(client, bufnr)
     ]], false)
 
     end
-
 end
 local lsp_config = {}
 
@@ -92,4 +90,3 @@ function lsp_config.tsserver_on_attach(client, bufnr)
     lsp_config.common_on_attach(client, bufnr)
     client.resolved_capabilities.document_formatting = false
 end
-
