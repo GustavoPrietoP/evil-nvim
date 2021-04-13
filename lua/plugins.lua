@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
     -- Lsp
 	use 'neovim/nvim-lspconfig'
 	use 'glepnir/lspsaga.nvim'
-    use 'hrsh7th/nvim-compe'
+	use 'hrsh7th/nvim-compe'
 	use 'mfussenegger/nvim-jdtls'
     use 'kabouzeid/nvim-lspinstall'
 	use 'onsails/lspkind-nvim'
@@ -54,9 +54,8 @@ return require('packer').startup(function(use)
     use 'romgrk/barbar.nvim'
 
 	-- Treesitter
-    use 'nvim-treesitter/playground'
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 	use 'GustavoPrietoP/nvim-ts-rainbow' -- my fork, check it out for rainbow parenthesis :)
+    use {'nvim-treesitter/nvim-treesitter'}
 
     use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
 	-- Debugger
