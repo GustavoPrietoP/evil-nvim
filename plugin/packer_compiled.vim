@@ -56,6 +56,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/galaxyline.nvim"
   },
+  ["gruvbox.nvim"] = {
+    loaded = true,
+    path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/gruvbox.nvim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
@@ -72,13 +76,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/lspsaga.nvim"
   },
+  ["lush.nvim"] = {
+    loaded = true,
+    path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/lush.nvim"
+  },
   ["markdown-preview.nvim"] = {
     loaded = true,
     path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim"
-  },
-  ["nvcode-color-schemes.vim"] = {
-    loaded = true,
-    path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/nvcode-color-schemes.vim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
@@ -91,6 +95,10 @@ _G.packer_plugins = {
   ["nvim-colorizer.lua"] = {
     loaded = true,
     path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua"
+  },
+  ["nvim-compe"] = {
+    loaded = true,
+    path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/nvim-compe"
   },
   ["nvim-dap"] = {
     loaded = true,

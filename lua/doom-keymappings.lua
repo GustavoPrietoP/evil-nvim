@@ -4,10 +4,19 @@ vim.g.mapleader = ' '
 
 -- no hl because its annoying
 vim.api.nvim_set_keymap('n', '<Leader>h', ':set hlsearch!<CR>', { noremap = true, silent = true })
-
+function setup_tabs()
+    -- Set up indenting
+    vim.bo.expandtab = true
+    vim.bo.copyindent = true
+    vim.bo.shiftwidth = 4
+    vim.bo.tabstop = 4
+    vim.bo.softtabstop = 4
+    vim.bo.autoindent = true
+    vim.bo.smartindent = true
+end
+vim.cmd [[ autocmd FileType * :lua setup_tabs() ]]
 -- explorer
 vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
-
 -- better window movement (Fast i guess)
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {silent = true})

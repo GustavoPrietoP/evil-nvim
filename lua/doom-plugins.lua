@@ -17,7 +17,7 @@ return require('packer').startup(function(use)
 	-- Markdown
 	use {'iamcco/markdown-preview.nvim',  run = 'cd app && yarn install'  }
     -- NvimTree
-    use 'kyazdani42/nvim-tree.lua'
+    use {'kyazdani42/nvim-tree.lua'}
 	use 'kyazdani42/nvim-web-devicons'
     -- Lsp
 	use 'neovim/nvim-lspconfig'
@@ -32,15 +32,16 @@ return require('packer').startup(function(use)
     use "rafamadriz/friendly-snippets"
 
 	-- Colorscheme
-    use 'christianchiarulli/nvcode-color-schemes.vim'
+    --use 'christianchiarulli/nvcode-color-schemes.vim'
+    use {"npxbr/gruvbox.nvim", requires = {"rktjmp/lush.nvim"}}
 	use 'norcalli/nvim-colorizer.lua'
+	--use 'GustavoPrietoP/doom-one.vim' -- [Darker version] --if you want this , comment the darker doom-one, restart nvim, :PackerClean, restart, uncomment this one, :PackerInstall
+    use 'NTBBloodbath/doom-one.vim'
 	use 'bluz71/vim-nightfly-guicolors'
-	use 'GustavoPrietoP/doom-one.vim' -- The superior colorscheme
 
     -- Telescope
     use 'nvim-lua/popup.nvim'
-    use 'nvim-lua/plenary.nvim'
-    use 'nvim-telescope/telescope.nvim'
+    use 'nvim-lua/plenary.nvim' use 'nvim-telescope/telescope.nvim'
     use 'nvim-telescope/telescope-media-files.nvim'
     use 'kevinhwang91/nvim-bqf'
 
@@ -54,7 +55,7 @@ return require('packer').startup(function(use)
     use 'romgrk/barbar.nvim'
 
 	-- Treesitter
-	use 'GustavoPrietoP/nvim-ts-rainbow' -- my fork, check it out for rainbow parenthesis :)
+    use 'p00f/nvim-ts-rainbow'
     use {'nvim-treesitter/nvim-treesitter'}
 
     use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
