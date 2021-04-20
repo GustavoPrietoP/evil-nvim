@@ -17,3 +17,4 @@ vim.g.user_emmet_anchorizeurl_key = '<C-y>a'
 vim.g.user_emmet_anchorizesummary_key = '<C-y>A'
 vim.g.user_emmet_mergelines_key = '<C-y>m'
 vim.g.user_emmet_codepretty_key = '<C-y>c'
+
