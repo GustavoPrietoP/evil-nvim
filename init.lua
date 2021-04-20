@@ -1,12 +1,12 @@
+require('doom-settings')
 require('doom-globals')
 require('doom-plugins')
 require('doom-keymappings')
-require('doom-settings')
 require('doom-config')
 --colors
 require('doom-colorscheme')
 require('doom-treesitter')
--- Plugs
+
 require('doom-rainbow')
 require('doom-autopairs')
 require('doom-barbar')
@@ -23,7 +23,8 @@ require('doom-compe')
 require('doom-dap')
 require('doom-lsp.init')
 require('doom-utils')
--- VIM COMMANDS LOL
+-- VIM COMMANDS
 vim.cmd('source ~/.config/nvim/vimscript/dashboard/init.vim')
 vim.cmd('source ~/.config/nvim/vimscript/markdown/init.vim')
-vim.cmd('highlight Cursor guifg=black')
+vim.cmd('source ~/.config/nvim/vimscript/doom-whichkey/init.vim')
+vim.cmd('source ~/.config/nvim/vimscript/highlights.vim')
