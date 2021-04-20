@@ -26,7 +26,7 @@ gls.left[2] = {
                 ['!'] = colors.red, t = colors.red
             }
             vim.api.nvim_command('hi GalaxyViMode guifg='..mode_color[vim.fn.mode()])
-            return '  '
+            return ' '
         end,
         highlight = {colors.red,colors.bg,'bold'},
     },
@@ -34,6 +34,7 @@ gls.left[2] = {
 gls.left[3] = {
     FileSize = {
         provider = 'FileSize',
+        separator = '',
         condition = condition.buffer_not_empty,
         highlight = {colors.fg,colors.bg}
     },
@@ -49,7 +50,7 @@ gls.left[5] = {
     FileName = {
         provider = 'FileName',
         condition = condition.buffer_not_empty,
-        highlight = {colors.magenta,colors.bg,'bold'}
+        highlight = {colors.blue, colors.bg,'bold'}
     }
 }
 gls.left[6] = {
@@ -98,6 +99,16 @@ gls.left[11] = {
 }
 
 gls.right[1] = {
+    FileEncode = {
+        provider = 'FileEncode',
+        condition = condition.hide_in_width,
+        separator = '  ',
+        separator_highlight = {'NONE',colors.bg},
+        highlight = {colors.green,colors.bg,'bold'}
+    }
+}
+
+gls.right[3] = {
     ShowLspClient = {
         provider = 'GetLspClient',
         condition = function ()
@@ -107,32 +118,22 @@ gls.right[1] = {
           end
           return true
         end,
-        icon = '  LSP: ',
+        icon = '   ',
         highlight = {colors.blue,colors.bg,'bold'}
     }
 }
-
 gls.right[2] = {
-    FileEncode = {
-        provider = 'FileEncode',
-        condition = condition.hide_in_width,
-        separator = ' ',
-        separator_highlight = {'NONE',colors.bg},
-        highlight = {colors.green,colors.bg,'bold'}
-    }
-}
-gls.right[3] = {
     FileFormat = {
         provider = 'FileFormat',
         condition = condition.hide_in_width,
-        separator = ' ',
+        separator = '  ',
         separator_highlight = {'NONE',colors.bg},
         highlight = {colors.green,colors.bg,'bold'}
     }
 }
 gls.right[4] = {
     GitIcon = {
-        provider = function() return '  ' end,
+        provider = function() return '  ' end,
         condition = condition.check_git_workspace,
         separator = ' ',
         separator_highlight = {'NONE',colors.bg},
@@ -150,7 +151,7 @@ gls.right[6] = {
     DiffAdd = {
         provider = 'DiffAdd',
         condition = condition.hide_in_width,
-        icon = '  ',
+        icon = '    ',
         highlight = {colors.green,colors.bg},
     }
 }
@@ -170,13 +171,6 @@ gls.right[8] = {
         highlight = {colors.red,colors.bg},
     }
 }
-gls.right[9] = {
-    RainbowBlue = {
-        provider = function() return '  ▊' end,
-        highlight = {colors.blue,colors.bg}
-    },
-}
-
 gls.short_line_left[1] = {
     BufferType = {
         provider = 'FileTypeName',
@@ -199,3 +193,4 @@ gls.short_line_right[1] = {
         highlight = {colors.fg,colors.bg}
     }
 }
+
