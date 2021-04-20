@@ -2,6 +2,7 @@
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true})
 vim.g.mapleader = ' '
 
+
 -- no hl because its annoying
 vim.api.nvim_set_keymap('n', '<Leader>th', ':nohl<CR>', { noremap = true, silent = true })
 function setup_tabs()
