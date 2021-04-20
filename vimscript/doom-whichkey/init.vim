@@ -114,7 +114,7 @@ let g:lmap.f.f = 'Find file'
 "" Find word
 let g:lmap.f.g = 'Find word'
 " Help tags
-let g:lmap.f.t = 'Help Tags'
+let g:lmap.f.t = 'Telescope Tags'
 " Private Configuration
 let g:lmap.f.P = 'Open Private Configuration'
 " Private Configuration
