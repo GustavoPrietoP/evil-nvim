@@ -3,7 +3,7 @@ vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true
 vim.g.mapleader = ' '
 
 -- no hl because its annoying
-vim.api.nvim_set_keymap('n', '<Leader>h', ':set hlsearch!<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>th', ':nohl<CR>', { noremap = true, silent = true })
 function setup_tabs()
     -- Set up indenting
     vim.bo.expandtab = true
@@ -16,7 +16,7 @@ function setup_tabs()
 end
 vim.cmd [[ autocmd FileType * :lua setup_tabs() ]]
 -- explorer
-vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+--vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 -- better window movement (Fast i guess)
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', {silent = true})
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', {silent = true})
@@ -37,7 +37,19 @@ vim.api.nvim_set_keymap('n', '<Leader>tt', ':ToggleTerm<CR>', {silent = true})
 vim.cmd('tnoremap <Esc> <C-\\><C-n>') -- get out of terminal insert mode into normal mode with Esc
 
 -- Fuzzy Finder just because
-vim.api.nvim_set_keymap('n', '<Leader>f', ':Telescope oldfiles<CR>', {silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>sl', ':SessionLoad<CR>', {noremap  = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>ss', ':SessionSave<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>fr', ':Telescope oldfiles<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>ff', ':Telescope find_files<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>fP', ':e ~/.config/nvim/lua/doom-settings.lua<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>fg', ':Telescope live_grep<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>ft', ':Telescope help_tags<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>fb', ':Telescope marks<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>fp', ":lua require'telescope'.extensions.project.project{}<CR>", {noremap = true, silent = true})
+
+-- whichkey
+vim.cmd("nnoremap <silent> <leader> :WhichKey '<Space>'<CR>")
+
 
 -- tab complete
 --vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
