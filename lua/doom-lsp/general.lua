@@ -18,6 +18,7 @@ nvim_lsp["html"].setup {on_attach = on_attach}
 nvim_lsp["typescript"].setup { on_attach = on_attach }
 nvim_lsp["rust"].setup { on_attach = on_attach }
 nvim_lsp["angular"].setup { on_attach = on_attach }
+nvim_lsp["vim"].setup { on_attach = on_attach }
 nvim_lsp["lua"].setup {
     on_attach = on_attach,
     settings = {
@@ -33,3 +34,4 @@ nvim_lsp["lua"].setup {
         }
     }
 }
+
