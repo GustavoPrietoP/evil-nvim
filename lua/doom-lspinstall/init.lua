@@ -16,3 +16,5 @@ require'lspinstall/servers'.jdtls = vim.tbl_extend('error', config, {
 })
 
 require'lspinstall'.setup()
+
+
