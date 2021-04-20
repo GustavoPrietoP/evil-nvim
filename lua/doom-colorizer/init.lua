@@ -47,3 +47,4 @@ require 'colorizer'.setup {
   '!vim'; -- Exclude vim from highlighting.
   -- Exclusion Only makes sense if '*' is specified!
 }
+
