@@ -1,6 +1,2 @@
-vim.cmd('hi rainbowcol1 guifg=#51afef')
-vim.cmd('hi rainbowcol2 guifg=#c678dd')
-vim.cmd('hi rainbowcol3 guifg=##98be65')
-vim.cmd('hi rainbowcol4 guifg=#51afef')
-vim.cmd('hi rainbowcol5 guifg=#c678dd')
-vim.cmd('hi rainbowcol6 guifg=##98be65')
+
+
