@@ -11,3 +11,4 @@ gruvbox
 nightfly
 doom-one [if you want the darker verion comment the light doom-one, restart nvim, :PackerClean, restart, uncomment this one, :PackerInstall]
 ]]
+
