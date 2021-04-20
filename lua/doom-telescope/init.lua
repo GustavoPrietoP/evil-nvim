@@ -2,7 +2,7 @@ local actions = require('telescope.actions')
 -- Global remapping
 ------------------------------
 -- '--color=never',
-require('telescope').load_extension('media_files')
+require'telescope'.load_extension('project')
 require('telescope').setup {
     defaults = {
         find_command = {'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'},
@@ -43,7 +43,7 @@ require('telescope').setup {
                 -- To disable a keymap, put [map] = false
                 -- So, to not map "<C-n>", just put
                 -- ["<c-x>"] = false,
-                ["<Leader>f"] = actions.close, -- works like a toggle, sometimes cna be buggy
+                ["<Leader>f"] = actions.close, -- works like a toggle, sometimes can be buggy
 
                 -- Otherwise, just set the mapping to the function that you want it to be.
                 -- ["<C-i>"] = actions.select_horizontal,
@@ -69,5 +69,12 @@ require('telescope').setup {
             filetypes = {"png", "webp", "jpg", "jpeg"},
             find_cmd = "rg" -- find command (defaults to `fd`)
         }
-    }
+    },
+    layout_defaults = {
+      flex = {
+        flip_columns = 130
+      }
+    },
+    layout_strategy = 'flex',
 }
+
