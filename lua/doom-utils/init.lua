@@ -29,7 +29,7 @@ nv_utils.define_augroups({
         {'BufRead', '*', 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o'},
         {'BufNewFile', '*', 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o'},
         {'FileType', 'markdown', 'setlocal wrap'}, {'FileType', 'markdown', 'setlocal spell'},
-		{'FileType', 'java', 'luafile ~/.config/nvim/lua/lsp/java-ls.lua'},
+		{'FileType', 'java', 'luafile ~/.config/nvim/lua/doom-lsp/java-ls.lua'},
         {'FileType', 'java', 'nnoremap ca <Cmd>lua require(\'jdtls\').code_action()<CR>'},
         {'BufWinEnter', '.sol', 'setlocal filetype=solidity'},
 
