@@ -5,8 +5,16 @@ vim.cmd('set relativenumber') -- remove this if you don't want to use relative n
 vim.cmd('set scrolloff=4')
 vim.cmd('set shortmess+=c') -- Don't pass messages to |ins-completion-menu|.
 vim.cmd('set sw=4') -- Change the number of space characters inserted for indentation
-vim.cmd('set ts=4') -- Insert 2 spaces for a tab vim.cmd('set whichwrap+=<,>,[,],h,l') -- move to next line with theses keys
+vim.cmd('set nu')
 vim.cmd('syntax on') -- move to next line with theses keys
+vim.cmd('set expandtab')
+vim.cmd('set tabstop=2')
+vim.cmd('set shiftwidth=2')
+vim.cmd('set autoindent')
+vim.cmd('set smartindent')
+vim.cmd('set list listchars=tab:»·,trail:·')
+vim.cmd('inoremap {} {}<ESC>i')
+vim.cmd('inoremap {<RETURN> {}<ESC>i<CR><ESC>O')
 vim.o.hidden = true -- Required to keep multiple buffers open multiple buffers
 vim.wo.wrap = false -- Display long lines as just one line
 vim.o.number = true
