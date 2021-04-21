@@ -23,4 +23,3 @@ require('jdtls').start_or_attach({
     root_dir = require('jdtls.setup').find_root({'build.gradle', 'pom.xml', '.git'}),
     init_options = {bundles = bundles}
 })
-
