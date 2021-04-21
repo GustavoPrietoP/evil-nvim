@@ -6,7 +6,7 @@ require('doom-config')
 --colors
 require('doom-colorscheme')
 require('doom-treesitter')
-
+-- Plugs
 require('doom-rainbow')
 require('doom-autopairs')
 require('doom-barbar')
