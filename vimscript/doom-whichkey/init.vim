@@ -73,7 +73,6 @@ let g:lmap.b.p = 'Previous buffer'
 "}}}
 
 " Plugin Menu---------------------------------------------------------{{{
-
 let g:lmap.p = {'name': 'Plugin Menu'}
 " Clean disabled or unused plugins
 nnoremap <silent> <leader>pc :PackerClean<CR>
@@ -87,6 +86,9 @@ let g:lmap.p.s = 'Performs PackerClean and then PackerUpdate'
 " Update your plugins
 nnoremap <silent> <leader>pu :PackerUpdate<CR>
 let g:lmap.p.u = 'Update your plugins'
+" Source your lua file
+nnoremap <silent> <leader>pl :luafile %<CR>
+let g:lmap.p.l = 'Source your lua file'
 "}}}
 
 " Formatting Buffers--------------------------------------------------{{{
