@@ -7,7 +7,7 @@ aurora  [enable nvcode colorscheme]
 dracula  [enable nvcode colorscheme]
 palenight [enable nvcode colorscheme]
 snazzy [enable nvcode colorscheme]
-gruvbox
+gruvbox [enable gruvbox community colorscheme]
 nightfly
 doom-one [if you want the darker verion comment the light doom-one, restart nvim, :PackerClean, restart, uncomment this one, :PackerInstall]
 ]]
