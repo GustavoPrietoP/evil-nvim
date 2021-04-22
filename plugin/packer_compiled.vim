@@ -79,10 +79,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/dashboard-nvim"
   },
-  ["doom-one.vim"] = {
-    loaded = true,
-    path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/doom-one.vim"
-  },
   ["emmet-vim"] = {
     loaded = true,
     path = "/home/gustavo/.local/share/nvim/site/pack/packer/start/emmet-vim"
