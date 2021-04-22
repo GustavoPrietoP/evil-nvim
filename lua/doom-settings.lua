@@ -1,21 +1,22 @@
 vim.cmd('set colorcolumn=99999') -- fix indentline for now
 vim.cmd('set iskeyword+=-') -- treat dash separated words as a word text object"
-vim.cmd('set noswapfile') -- no swap files
-vim.cmd('set relativenumber') -- remove this if you don't want to use relative numbers
-vim.cmd('set scrolloff=4')
 vim.cmd('set shortmess+=c') -- Don't pass messages to |ins-completion-menu|.
-vim.cmd('set sw=4') -- Change the number of space characters inserted for indentation
+vim.cmd('set noswapfile')
+vim.cmd('syntax on')
 vim.cmd('set nu')
-vim.cmd('syntax on') -- move to next line with theses keys
-vim.cmd('set expandtab')
-vim.cmd('set tabstop=2')
-vim.cmd('set shiftwidth=2')
-vim.cmd('set autoindent')
-vim.cmd('set smartindent')
 vim.cmd('set list listchars=tab:»·,trail:·')
 vim.cmd('inoremap {} {}<ESC>i')
-vim.cmd('inoremap {<RETURN> {}<ESC>i<CR><ESC>O')
+vim.cmd('inoremap {<RETURN> {}<ESC>i<CR><ESC>O') -- auto indent when for(){<Enter>
+vim.cmd [[ autocmd FileType * :norm '" ]] -- remove this if you dont want vim to preserve the last cursor editing position
 vim.o.hidden = true -- Required to keep multiple buffers open multiple buffers
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.nu = true
+vim.o.relativenumber = true
+vim.o.scrolloff = 4
+vim.o.shiftwidth = 4
+vim.o.smartindent = true
+vim.o.autoindent = true
 vim.wo.wrap = false -- Display long lines as just one line
 vim.o.number = true
 vim.o.pumheight = 10 -- Makes popup menu smaller
