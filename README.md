@@ -1,5 +1,7 @@
-<h1 align="center">No Needs to Use an IDE</h1>
+<h1 align="center">Evil Neovim</h1>
 
+> Great evil is coming to the world and we need your help to slay the demons 
+ 
 ![Demo](https://raw.githubusercontent.com/GustavoPrietoP/neovim/main/screenshot/demo.png)
 # "Minimalism"
 My Neovim configuration is aimed on bringing minimalism to the table. It has the looks of [Doom Emacs](https://github.com/hlissner/doom-emacs) but don't let it fool you!
@@ -33,7 +35,6 @@ In order to get your desired language support (autocomplete, diagnostics, code a
 
 # Dope People
 - [hlissner](https://github.com/hlissner) for Doom Emacs :heart:
-- [NTBBloodbath](https://github.com/NTBBloodbath) for Doom-nvim :heart_eyes:
 - [Chris](https://github.com/ChristianChiarulli) for the colorschemes and helping with the configs :sunglasses:
 # Themes 
 [Doom-one](https://github.com/GustavoPrietoP/doom-one.vim) Enabled by default (Thanks to [NTBBloodbath](https://github.com/NTBBloodbath))
@@ -42,7 +43,7 @@ In order to get your desired language support (autocomplete, diagnostics, code a
 
 # Used Plugins
 - Main Screen
-  - [Dashboard](https://github.com/glepnir/dashboard-nvim) (configured by [doom-nvim](https://github.com/NTBBloodbath/doom-nvim))
+  - [Dashboard](https://github.com/glepnir/dashboard-nvim)
 
 - File tree
   - [Nvim-tree](https://github.com/kyazdani42/nvim-tree.lua)
@@ -58,7 +59,7 @@ In order to get your desired language support (autocomplete, diagnostics, code a
 - Others
   - [Tree-sitter](https://github.com/nvim-treesitter/nvim-treesitter)
   - [Barbar](https://github.com/romgrk/barbar.nvim)
-  - [galaxyline](https://github.com/glepnir/galaxyline.nvim) (configured by [Doom-nvim](https://github.com/NTBBloodbath/doom-nvim))
+  - [galaxyline](https://github.com/glepnir/galaxyline.nvim)
   - [Auto-pairs](https://github.com/windwp/nvim-autopairs)
   - [Bracket-pair colorizer](https://github.com/GustavoPrietoP/nvim-ts-rainbow)
   - [Colorizer](https://github.com/norcalli/nvim-colorizer.lua)
