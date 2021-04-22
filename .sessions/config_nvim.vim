@@ -8,12 +8,9 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 set shortmess=aoO
-badd +85 ~/.config/nvim/vimscript/doom-whichkey/init.vim
-badd +38 ~/.config/nvim/vimscript/dashboard/init.vim
-badd +30 ~/.config/nvim/lua/doom-keymappings.lua
+badd +48 ~/.config/nvim/lua/doom-plugins.lua
 argglobal
 %argdel
-edit ~/.config/nvim/vimscript/doom-whichkey/init.vim
 set splitbelow splitright
 wincmd t
 set winminheight=0
@@ -21,7 +18,8 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
-balt ~/.config/nvim/lua/doom-keymappings.lua
+enew
+file NvimTree
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -29,15 +27,7 @@ setlocal fdi=#
 setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 86 - ((29 * winheight(0) + 29) / 58)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 86
-normal! 02|
+setlocal nofen
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0&& getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
