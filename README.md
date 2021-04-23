@@ -1,7 +1,7 @@
 <div align="center">
 
 # Evil Neovim
-[![GitHub license](https://img.shields.io/github/license/GustavoPrietoP/Evil-Nvim)](https://github.com/GustavoPrietoP/Evil-Nvim/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/GustavoPrietoP/Evil-Nvim)](https://github.com/GustavoPrietoP/Evil-Nvim/main/LICENSE)
 ![Latest Release](https://img.shields.io/github/v/release/GustavoPrietoP/Evil-nvim?include_prereleases&style=flat-square)
 [![PRs Welcome](https://img.shields.io/badge/Pr's-welcome-pink.svg?style=flat-square)](http://makeapullrequest.com)
 ![Neovim](https://img.shields.io/badge/Neovim-0.5-57A143?style=flat-square&logo=neovim)
