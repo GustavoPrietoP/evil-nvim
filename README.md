@@ -1,7 +1,7 @@
 <div align="center">
 
 # Evil Neovim
-[![GitHub license](https://img.shields.io/github/license/ChristianChiarulli/LunarVim)](https://github.com/ChristianChiarulli/LunarVim/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/GustavoPrietoP/Evil-Nvim)](https://github.com/GustavoPrietoP/Evil-Nvim/blob/master/LICENSE)
 ![Latest Release](https://img.shields.io/github/v/release/GustavoPrietoP/Evil-nvim?include_prereleases&style=flat-square)
 [![PRs Welcome](https://img.shields.io/badge/Pr's-welcome-pink.svg?style=flat-square)](http://makeapullrequest.com)
 ![Neovim](https://img.shields.io/badge/Neovim-0.5-57A143?style=flat-square&logo=neovim)
@@ -25,7 +25,6 @@ It uses as many lua plugins as possible which results in a lightning fast experi
 - **Neovim Nightly 0.5+**
 - Git 2.23+
 - Unix or Unix-like system
-- Neovide (recommended)
 
 # Get the latest and greatest neovim
 
@@ -34,6 +33,16 @@ git clone https://github.com/neovim/neovim
 cd neovim
 sudo make CMAKE_BUILD_TYPE=Release install
 ```
+To make sure you won't run into some issues install the following:
+``` bash
+neovide
+ranger
+ueberzug
+ripgrep
+pynvim
+neovim-remote
+```
+
 # When Launching
 run `:PackerSync` and restart Neovim
 
