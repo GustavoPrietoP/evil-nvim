@@ -45,8 +45,7 @@ return require('packer').startup(function(use)
     --use 'christianchiarulli/nvcode-color-schemes.vim'
     use {"npxbr/gruvbox.nvim", requires=  {"rktjmp/lush.nvim"}}
 	use {'norcalli/nvim-colorizer.lua'}
-	--use {'GustavoPrietoP/doom-one.vim'} -- [Darker version] --if you want this , comment the darker doom-one, restart nvim, :PackerClean, restart, uncomment this one, :PackerInstall
-    use {'NTBBloodbath/doom-one.vim'}
+	use {'GustavoPrietoP/doom-one.vim'}
 	use {'bluz71/vim-nightfly-guicolors'}
 
     -- Telescope
