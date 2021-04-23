@@ -1,29 +1,38 @@
-<h1 align="center">Evil Neovim</h1>
+<div align="center">
+
+# Evil Neovim
+[![GitHub license](https://img.shields.io/github/license/ChristianChiarulli/LunarVim)](https://github.com/ChristianChiarulli/LunarVim/blob/master/LICENSE)
+![Latest Release](https://img.shields.io/github/v/release/GustavoPrietoP/Evil-nvim?include_prereleases&style=flat-square)
+[![PRs Welcome](https://img.shields.io/badge/Pr's-welcome-pink.svg?style=flat-square)](http://makeapullrequest.com)
+![Neovim](https://img.shields.io/badge/Neovim-0.5-57A143?style=flat-square&logo=neovim)
+![Demo](https://raw.githubusercontent.com/GustavoPrietoP/neovim/main/screenshot/demo.png)
+
+</div>
+
+# Introduction
+
+<a href="http://ultravioletbat.deviantart.com/art/Yay-Evil-111710573">
+  <img src="https://raw.githubusercontent.com/hlissner/doom-emacs/screenshots/cacochan.png" align="right" />
+</a>
+</h1>
 
 > Great evil is coming to the world and we need your help to slay the demons 
- 
-![Demo](https://raw.githubusercontent.com/GustavoPrietoP/neovim/main/screenshot/demo.png)
-# "Minimalism"
-My Neovim configuration is aimed on bringing minimalism to the table. It has the looks of [Doom Emacs](https://github.com/hlissner/doom-emacs) but don't let it fool you!
-It uses as many lua plugins as possible which results in a lightning fast experience while still maintaining a minimalist, feature rich editing experience!
 
-**NOTE: THIS IS BASED ON MY SYSTEM AND YOU MAY ENCOUNTER SOME ERRORS**
+Evil Nvim is a Neovim port of the [Doom Emacs](https://github.com/hlissner/doom-emacs) configuration framework.
+It uses as many lua plugins as possible which results in a lightning fast experience, and it takes advantage of [Neovide's](https://github.com/Kethku/neovide) GUI to provide the user a familiar look and feel to doom-emacs. The main objective of Evil Nvim is to welcome any doom-emacs fan-boy (or Vim newcomer) to Vim with the best experience possible.
 
 # Requirements
 - **Neovim Nightly 0.5+**
-- git 2.23+
-- unix or unix-like system
+- Git 2.23+
+- Unix or Unix-like system
+- Neovide (recommended)
 
 # Get the latest and greatest neovim
 
 ```bash
-cd ~
-sudo rm -r neovim
 git clone https://github.com/neovim/neovim
 cd neovim
 sudo make CMAKE_BUILD_TYPE=Release install
-cd ~
-sudo rm -r neovim
 ```
 # When Launching
 run `:PackerSync` and restart Neovim
