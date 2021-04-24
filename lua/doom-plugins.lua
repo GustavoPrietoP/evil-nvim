@@ -47,7 +47,6 @@ return require('packer').startup(function(use)
 	use {'norcalli/nvim-colorizer.lua'}
 	use {'GustavoPrietoP/doom-one.vim'}
 	use {'bluz71/vim-nightfly-guicolors'}
-
     -- Telescope
     use {'nvim-lua/popup.nvim'}
     use {'nvim-lua/plenary.nvim'}
