@@ -1,6 +1,6 @@
 <div align="center">
 
-# Evil Neovim
+# Evil Neovim :smiling_imp:
 [![GitHub license](https://img.shields.io/github/license/GustavoPrietoP/Evil-Nvim)](https://github.com/GustavoPrietoP/Evil-Nvim/main/LICENSE)
 ![Latest Release](https://img.shields.io/github/v/release/GustavoPrietoP/Evil-nvim?include_prereleases&style=flat-square)
 [![PRs Welcome](https://img.shields.io/badge/Pr's-welcome-pink.svg?style=flat-square)](http://makeapullrequest.com)
@@ -77,7 +77,7 @@ In order to get your desired language support (autocomplete, diagnostics, code a
 
 ---
 # Contribute
-Currently looking for people to help me improve this project. You can make a PR and I'll make sure to have a look at it :D Also, if you encounter any error don't hesitate to submit an issue [here](https://github.com/GustavoPrietoP/evil-nvim/issues). Feature requests are always welcome btw ;)
+Currently looking for people to help me improve this project. You can make a PR and I'll make sure to have a look at it :smiley: Also, if you encounter any error don't hesitate to submit an issue [here](https://github.com/GustavoPrietoP/evil-nvim/issues). Feature requests are always welcome btw :wink:
 
 # Used Packages
 - Main Screen
