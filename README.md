@@ -20,6 +20,7 @@
 - [Install Evil-Nvim](#install-evil-nvim)
 - [LSP](#lsp)
 - [Packages](#used-packages)
+- [Contribute](#contribute)
 
 # Introduction
 
@@ -73,6 +74,10 @@ In order to get your desired language support (autocomplete, diagnostics, code a
 # Themes 
 [Doom One](https://github.com/GustavoPrietoP/doom-one.vim) (My Fork) \
 [LunarVim](https://github.com/ChristianChiarulli/nvcode-color-schemes.vim) (Thanks to [Chris](http://github.com/ChristianChiarulli))
+
+---
+# Contribute
+Currently looking for people to help me improve this project. You can make a PR and I'll make sure to have a look at it :D Also, if you encounter any error don't hesitate to submit an issue [here](https://github.com/GustavoPrietoP/evil-nvim/issues). Feature requests are always welcome btw ;)
 
 # Used Packages
 - Main Screen
