@@ -9,6 +9,18 @@
 
 </div>
 
+---
+
+### Table of Contents
+
+- [Introduction](#introduction)
+- [Acknowledgements](#dope-people)
+- [Requirements](#requirements)
+- [Install Nvim 0.5+](#get-the-latest-and-greatest-neovim)
+- [Install Evil-Nvim](#install-evil-nvim)
+- [LSP](#lsp)
+- [Packages](#used-packages)
+
 # Introduction
 
 <a href="http://ultravioletbat.deviantart.com/art/Yay-Evil-111710573">
@@ -42,6 +54,10 @@ ripgrep
 pynvim
 neovim-remote
 ```
+# Install Evil-Nvim
+```
+bash <(curl -s https://raw.githubusercontent.com/GustavoPrietoP/evil-nvim/main/doom-installer.sh)
+```
 
 # When Launching
 run `:PackerSync` and restart Neovim
@@ -55,11 +71,10 @@ In order to get your desired language support (autocomplete, diagnostics, code a
 - [hlissner](https://github.com/hlissner) for Doom Emacs :heart:
 - [Chris](https://github.com/ChristianChiarulli) for the colorschemes and helping with the configs :sunglasses:
 # Themes 
-[Doom-one](https://github.com/GustavoPrietoP/doom-one.vim) Enabled by default (Thanks to [NTBBloodbath](https://github.com/NTBBloodbath))
+[Doom One](https://github.com/GustavoPrietoP/doom-one.vim) (My Fork) \
+[LunarVim](https://github.com/ChristianChiarulli/nvcode-color-schemes.vim) (Thanks to [Chris](http://github.com/ChristianChiarulli))
 
-[nvcode-colorschemes](https://github.com/ChristianChiarulli/nvcode-color-schemes.vim) (Thanks to [Chris](http://github.com/ChristianChiarulli))
-
-# Used Plugins
+# Used Packages
 - Main Screen
   - [Dashboard](https://github.com/glepnir/dashboard-nvim)
 
