@@ -1,1 +1,6 @@
 plugin/
+lua-language-server/
+eclipse.jdt.ls/
+.language-servers/
+autoload/plugged/*
+.sessions/
