@@ -1,6 +1,4 @@
-plugin/
-lua-language-server/
-eclipse.jdt.ls/
-.language-servers/
-autoload/plugged/*
-.sessions/
+
+plugin/packer_compiled.vim
+plugin/packer_compiled.vim
+.language-servers/eclipse.jdt.ls
