@@ -94,12 +94,10 @@ asktoinstallnode() {
 }
 
 asktoinstallpip() {
-	# echo "pip not found"
-	# echo -n "Would you like to install pip now (y/n)? "
-	# read answer
-	# [ "$answer" != "${answer#[Yy]}" ] && installpip
-	echo "Please install pip3 before continuing with install"
-	exit
+	 echo "pip not found"
+	 echo -n "Would you like to install pip now (y/n)? "
+	 read answer
+	 [ "$answer" != "${answer#[Yy]}" ] && installpip
 }
 
 installonmac() {
@@ -169,7 +167,7 @@ else
 	# echo 'export PATH=$HOME/.config/nvim/utils/bin:$PATH' >>~/.zshrc
 fi
 
-echo "I recommend you also install and activate a font from here: https://github.com/ryanoasis/nerd-fonts"
+echo "If there are any missing emojis, set a nerd-font as your terminal font. (Link here: https://github.com/ryanoasis/nerd-fonts"
 
 # echo "I also recommend you add 'set preview_images_method ueberzug' to ~/.config/ranger/rc.conf"
 
