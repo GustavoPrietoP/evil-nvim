@@ -1,4 +1,5 @@
-
 plugin/packer_compiled.vim
 plugin/packer_compiled.vim
 .language-servers/eclipse.jdt.ls
+
+.sessions/config_nvim.vim
