@@ -113,3 +113,23 @@ require('lspinstall').post_install_hook = function ()
   setup_servers() -- reload installed servers
   vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
 end
+
+
+
+
+-- Lsp Server settings --
+nvim_lsp["lua"].setup {
+    on_attach = on_attach,
+    settings = {
+        Lua = {
+            diagnostics = {globals = {"vim", "use"}},
+            workspace = {
+                library = {
+                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                    [vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true
+                },
+                maxPreload = 10000
+            }
+        }
+    }
+}
