@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -o nounset # error when referencing undefined variable
 set -o errexit # exit when command fails
@@ -19,6 +19,8 @@ moveoldnvim() {
 	echo "Please move your ~/.config/nvim folder before installing"
 	exit
 }
+
+
 
 installnodearch() {
 	sudo pacman -S nodejs
@@ -51,11 +53,11 @@ installpiponubuntu() {
 }
 
 installpiponarch() {
-	pacman -S python-pip
+	sudo pacman -S python-pip
 }
 
 installpiponfedora() {
-	sudo dnf install -y pip >/dev/nul
+	sudo dnf install -y pip >/dev/null
 }
 
 installpip() {
@@ -72,8 +74,9 @@ installpynvim() {
 	pip3 install pynvim --user
 }
 
-installpacker() {
-	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+installpaq() {
+    git clone https://github.com/savq/paq-nvim.git \
+        "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/opt/paq-nvim
 }
 
 cloneconfig() {
@@ -155,6 +158,7 @@ which node >/dev/null && echo "node installed, moving on..." || asktoinstallnode
 # install pynvim
 pip3 list | grep pynvim >/dev/null && echo "pynvim installed, moving on..." || installpynvim
 
+
 if [ -a "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
 	echo 'packer already installed'
 else
@@ -172,4 +176,3 @@ fi
 echo "I recommend you also install and activate a font from here: https://github.com/ryanoasis/nerd-fonts"
 
 # echo "I also recommend you add 'set preview_images_method ueberzug' to ~/.config/ranger/rc.conf"
-
