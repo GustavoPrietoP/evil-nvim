@@ -51,11 +51,11 @@ installpiponubuntu() {
 }
 
 installpiponarch() {
-	pacman -S python-pip
+	sudo pacman -S python-pip
 }
 
 installpiponfedora() {
-	sudo dnf install -y pip >/dev/nul
+	sudo dnf install -y pip >/dev/null
 }
 
 installpip() {
