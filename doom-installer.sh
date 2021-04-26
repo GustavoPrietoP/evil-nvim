@@ -81,7 +81,7 @@ cloneconfig() {
     git clone https://github.com/GustavoPrietoP/evil-nvim.git ~/.config/nvim
 	# mv $HOME/.config/nvim/init.lua $HOME/.config/nvim/init.lua.tmp
 	# mv $HOME/.config/nvim/utils/init.lua $HOME/.config/nvim/init.lua
-	nvim -u $HOME/.config/nvim/init.lua +PackerInstall
+	nvim -u $HOME/.config/nvim/init.lua +PaqInstall
 	# rm $HOME/.config/nvim/init.lua
 	# mv $HOME/.config/nvim/init.lua.tmp $HOME/.config/nvim/init.lua
 }
