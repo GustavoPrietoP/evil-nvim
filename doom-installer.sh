@@ -162,7 +162,7 @@ pip3 list | grep pynvim >/dev/null && echo "pynvim installed, moving on..." || i
 if [ -a "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
 	echo 'packer already installed'
 else
-	installpacker
+	installpaq
 fi
 
 if [ -a "$HOME/.config/nvim/init.lua" ]; then
