@@ -1,15 +1,6 @@
 local nv_utils = {}
-
 function nv_utils.define_augroups(definitions) -- {{{1
-    -- Create autocommand groups based on the passed definitions
-    --
-    -- The key will be the name of the group, and each definition
-    -- within the group should have:
-    --    1. Trigger
-    --    2. Pattern
-    --    3. Text
-    -- just like how they would normally be defined from Vim itself
-    for group_name, definition in pairs(definitions) do
+   for group_name, definition in pairs(definitions) do
         vim.cmd('augroup ' .. group_name)
         vim.cmd('autocmd!')
 
@@ -33,25 +24,11 @@ nv_utils.define_augroups({
         {'FileType', 'java', 'nnoremap ca <Cmd>lua require(\'jdtls\').code_action()<CR>'},
         {'BufWinEnter', '.sol', 'setlocal filetype=solidity'},
 
-        -- seems to be nobuflisted that makes my stuff disapear will do more testing
         {'FileType', 'dashboard', 'setlocal nocursorline noswapfile synmaxcol& signcolumn=no norelativenumber nocursorcolumn nospell  nolist  nonumber bufhidden=wipe colorcolumn= foldcolumn=0 matchpairs= '},
         {'FileType', 'dashboard', 'set showtabline=0 | autocmd WinLeave <buffer> set showtabline=2'},
         {'BufRead', '*.sol', 'setlocal filetype=solidity'}, {'BufNewFile', '*.sol', 'setlocal filetype=solidity'},
-
-        -- {'BufWritePre', '*.jsx', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'},
-        -- {'BufWritePre', '*.js', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'},
-        -- {'BufWritePre', '*.py', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'},
-        -- {'BufWritePre', '*.lua', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'},
-        -- {'BufWritePre', '*.json', 'lua vim.lsp.buf.formatting_sync(nil, 1000)'}
-        -- {'User', 'GoyoLeave', 'lua require(\'galaxyline\').disable_galaxyline()'},
-        -- {'User', 'GoyoEnter', 'lua require(\'galaxyline\').galaxyline_augroup()'},
     }
 })
-
--- Add this to lightbulb, java makes this annoying tho
--- autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()
-
--- lsp
 
 function nv_utils.add_to_workspace_folder()
     vim.lsp.buf.add_workspace_folder()

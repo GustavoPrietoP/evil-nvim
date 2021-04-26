@@ -1,20 +1,15 @@
+--  use `as` to alias a package name
+-- use braces when passing an option
+
 vim.cmd 'packadd paq-nvim'         -- Load package
 
 local paq = require'paq-nvim'.paq  -- Import module and bind `paq` function
 
 paq{'savq/paq-nvim', opt=true}     -- Let Paq manage itself
 -- Add your packages
-paq 'neovim/nvim-lspconfig'
-paq 'nvim-lua/completion-nvim'
-paq 'nvim-lua/lsp_extensions.nvim'
-
-paq{'lervag/vimtex', opt=true}     -- Use braces when passing options
-
-paq{'dracula/vim', as='dracula'}   -- Use `as` to alias a package name (here `vim`)
-    -- very special org mode!
 paq {'Vhyrro/neorg'}
 -- Markdown
-paq {'iamcco/markdown-preview.nvim',  run=  'cd app && yarn install'}
+paq {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
 -- NvimTree
 paq {'kyazdani42/nvim-tree.lua'}
 paq {'kyazdani42/nvim-web-devicons'}
@@ -43,6 +38,7 @@ paq {'nvim-lua/popup.nvim'}
 paq {'nvim-lua/plenary.nvim'}
 paq {'nvim-telescope/telescope.nvim'}
 paq {'kevinhwang91/nvim-bqf'}
+-- paq {'glepnir/dashboard-nvim'}
 paq {'nvim-telescope/telescope-project.nvim'}
 -- LuaGuide
 paq {'nanotee/nvim-lua-guide'}
@@ -53,10 +49,9 @@ paq {'romgrk/barbar.nvim'}
 -- Treesitter
 paq {'nvim-treesitter/nvim-treesitter'}
 paq {'GustavoPrietoP/nvim-ts-rainbow'}
-paq {'lukas-reineke/indent-blankline.nvim'}
+paq {'lukas-reineke/indent-blankline.nvim', branch='lua'}
 -- Debugger
 paq {'mfussenegger/nvim-dap'}
--- Start Screen
 -- Galaxy Line
 paq {'glepnir/galaxyline.nvim'}
 -- Everyone needs a terminal
