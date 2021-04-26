@@ -18,11 +18,11 @@ require('doom-terminal')
 require('doom-telescope')
 require('doom-emmet')
 -- LSP
-require('doom-lsp.general')
 require('doom-compe')
 require('doom-dap')
 require('doom-lsp.init')
 require('doom-utils')
+
 -- VIM COMMANDS
 vim.cmd('source ~/.config/nvim/vimscript/dashboard/init.vim')
 vim.cmd('source ~/.config/nvim/vimscript/markdown/init.vim')

@@ -91,3 +91,25 @@ function lsp_config.tsserver_on_attach(client, bufnr)
     client.resolved_capabilities.document_formatting = false
 end
 
+local on_attach = function(client, bufnr)
+    function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+    function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+    buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+end
+
+local nvim_lsp = require('lspconfig')
+local function setup_servers()
+    require('lspinstall').setup()
+    local servers = require('lspinstall').installed_servers()
+    for _, server in pairs(servers) do
+        nvim_lsp[server].setup{}
+    end
+end
+
+setup_servers()
+
+-- Reloads lsp server after lspInstall
+require('lspinstall').post_install_hook = function ()
+  setup_servers() -- reload installed servers
+  vim.cmd("bufdo e") -- this triggers the FileType autocmd that starts the server
+end
