@@ -38,7 +38,7 @@ paq {'nvim-lua/popup.nvim'}
 paq {'nvim-lua/plenary.nvim'}
 paq {'nvim-telescope/telescope.nvim'}
 paq {'kevinhwang91/nvim-bqf'}
--- paq {'glepnir/dashboard-nvim'}
+paq {'glepnir/dashboard-nvim'}
 paq {'nvim-telescope/telescope-project.nvim'}
 -- LuaGuide
 paq {'nanotee/nvim-lua-guide'}

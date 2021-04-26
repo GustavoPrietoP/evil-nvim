@@ -1,6 +1,6 @@
 let g:dashboard_session_directory = $HOME..'/.config/nvim/.sessions'
 let g:dashboard_default_executive = 'telescope'
-let packages = len(globpath('~/.local/share/nvim/site/pack/packer/start', '*', 0, 1))
+let packages = len(globpath('~/.local/share/nvim/site/pack/paqs/start', '*', 0, 1))
 
 let g:dashboard_custom_footer = [
                 \ 'Doom loaded '..packages..' packages'
