@@ -72,15 +72,14 @@ installpynvim() {
 	pip3 install pynvim --user
 }
 
-installpaq() {
-    git clone https://github.com/savq/paq-nvim.git \
-        "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/opt/paq-nvim
+installpacker() {
+	git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 }
 
 cloneconfig() {
 	echo "Cloning Evil-Nvim configuration"
     git clone https://github.com/GustavoPrietoP/evil-nvim.git ~/.config/nvim
-	nvim -u $HOME/.config/nvim/init.lua +PaqInstall
+	nvim -u $HOME/.config/nvim/init.lua +PackerInstall
 }
 
 asktoinstallnode() {
@@ -156,7 +155,7 @@ pip3 list | grep pynvim >/dev/null && echo "pynvim installed, moving on..." || i
 if [ -a "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
 	echo 'packer already installed'
 else
-	installpaq
+	installpacker
 fi
 
 if [ -a "$HOME/.config/nvim/init.lua" ]; then
