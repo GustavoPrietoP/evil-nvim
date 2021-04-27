@@ -2,17 +2,20 @@ vim.cmd('set colorcolumn=99999') -- fix indentline for now
 vim.cmd('set iskeyword+=-') -- treat dash separated words as a word text object"
 vim.cmd('set shortmess+=c') -- Don't pass messages to |ins-completion-menu|.
 vim.cmd('set noswapfile')
-vim.cmd('syntax on')
+if evil_syntax == true then
+   vim.cmd('syntax on')
+elseif evil_syntax == false then
+    vim.cmd('syntax off')
+end
 vim.cmd('set nu')
 vim.cmd('set list listchars=tab:»·,trail:·')
 vim.cmd('inoremap {} {}<ESC>i')
 vim.cmd('inoremap {<RETURN> {}<ESC>i<CR><ESC>O') -- auto indent when for(){<Enter>
-vim.cmd [[ autocmd FileType * :norm '" ]] -- remove this if you dont want vim to preserve the last cursor editing position
+--vim.cmd [[ autocmd FileType * :norm '" ]] -- remove this if you dont want vim to preserve the last cursor editing position
 vim.o.hidden = true -- Required to keep multiple buffers open multiple buffers
 vim.o.expandtab = true
 vim.o.tabstop = 2
 vim.o.nu = true
-vim.o.relativenumber = true
 vim.o.scrolloff = 4
 vim.o.shiftwidth = 4
 vim.o.smartindent = true
@@ -39,3 +42,9 @@ vim.o.timeoutlen = 200 -- By default timeoutlen is 1000 ms
 vim.o.clipboard = "unnamedplus" -- Copy paste between vim and everything else
 vim.o.cmdheight=1 -- increase this to make galaxyline move up
 vim.o.guifont = "SauceCodePro Nerd Font:h17"
+
+if evil_relative == true then
+    vim.o.relativenumber = true
+else
+    vim.o.relativenumber = false
+end

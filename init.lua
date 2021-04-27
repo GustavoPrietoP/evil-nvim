@@ -1,11 +1,12 @@
-require('doom-settings')
-require('doom-globals')
 require('doom-plugins')
+require('doom-globals')
 require('doom-keymappings')
 require('doom-config')
+require('evil')
 --colors
 require('doom-colorscheme')
 require('doom-treesitter')
+require('doom-settings')
 -- Plugs
 require('doom-rainbow')
 require('doom-autopairs')

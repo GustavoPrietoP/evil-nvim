@@ -89,6 +89,12 @@ nnoremap <silent> <leader>pl :luafile %<CR>
 let g:lmap.p.l = 'Source your lua file'
 "}}}
 
+" Help---------------------------------------------------------{{{
+let g:lmap.h = {'name': '+help'}
+nnoremap <silent> <leader>ht :DashboardChangeColorscheme<CR>
+let g:lmap.h.t = 'load-theme'
+
+
 " Formatting Buffers--------------------------------------------------{{{
 let g:lmap.o = {'name': 'Order Menu'}
 " Sort by directory
@@ -168,8 +174,6 @@ nnoremap <silent> <Leader>te :NvimTreeToggle<CR>
 let g:lmap.t.e = 'Tree Explorer'
 " Toggle no search highlight
 let g:lmap.t.h = "No highlight"
-nnoremap <silent> <leader>tc :DashboardChangeColorscheme<CR>
-let g:lmap.t.c = 'Change colorscheme'
 " Open Start Screen
 nnoremap <silent> <leader>ts :Dashboard<CR>
 let g:lmap.t.s = 'Open start screen'

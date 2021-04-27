@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/env bash
 
 set -o nounset # error when referencing undefined variable
 set -o errexit # exit when command fails
@@ -19,8 +19,6 @@ moveoldnvim() {
 	echo "Please move your ~/.config/nvim folder before installing"
 	exit
 }
-
-
 
 installnodearch() {
 	sudo pacman -S nodejs
@@ -82,11 +80,7 @@ installpaq() {
 cloneconfig() {
 	echo "Cloning Evil-Nvim configuration"
     git clone https://github.com/GustavoPrietoP/evil-nvim.git ~/.config/nvim
-	# mv $HOME/.config/nvim/init.lua $HOME/.config/nvim/init.lua.tmp
-	# mv $HOME/.config/nvim/utils/init.lua $HOME/.config/nvim/init.lua
 	nvim -u $HOME/.config/nvim/init.lua +PaqInstall
-	# rm $HOME/.config/nvim/init.lua
-	# mv $HOME/.config/nvim/init.lua.tmp $HOME/.config/nvim/init.lua
 }
 
 asktoinstallnode() {
