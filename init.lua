@@ -1,15 +1,16 @@
-require('doom-settings')
-require('doom-globals')
 require('doom-plugins')
+require('doom-utils')
+vim.cmd('luafile ~/.config/nvim/evilrc')
+require('doom-autocommands')
+require('doom-settings')
 require('doom-keymappings')
-require('doom-config')
+
 --colors
-require('doom-colorscheme')
 require('doom-treesitter')
 -- Plugs
-require('doom-rainbow')
 require('doom-autopairs')
 require('doom-barbar')
+require('doom-icons')
 require('doom-colorizer')
 require('doom-galaxyline')
 require('doom-indentline')
@@ -17,11 +18,12 @@ require('doom-tree')
 require('doom-terminal')
 require('doom-telescope')
 require('doom-emmet')
+
+--require('doom-keys')
 -- LSP
 require('doom-compe')
 require('doom-dap')
 require('doom-lsp.init')
-require('doom-utils')
 
 -- VIM COMMANDS
 vim.cmd('source ~/.config/nvim/vimscript/dashboard/init.vim')
