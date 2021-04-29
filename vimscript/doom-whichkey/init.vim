@@ -57,9 +57,6 @@ let g:lmap.b.9 = 'Last buffer'
 " Close current buffer
 nnoremap <silent> <leader>bc :BufferClose<CR>
 let g:lmap.b.c = 'Close buffer'
-" Format buffer
-nnoremap <silent> <leader>bf :Neoformat<CR>
-let g:lmap.b.f = 'Format buffer'
 " Next buffer
 nnoremap <silent> <leader>bn :BufferNext<CR>
 let g:lmap.b.n = 'Next buffer'
