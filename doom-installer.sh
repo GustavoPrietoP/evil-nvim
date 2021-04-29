@@ -1,178 +1,390 @@
-#!/bin/bash
+#!/usr/bin/bash
+#================================================
+# install.sh - Evil Nvim Installation Script
+# Author: NTBBloodbath (all credit goes to him for this install script)
+# License: MIT
+#================================================
 
-set -o nounset # error when referencing undefined variable
-set -o errexit # exit when command fails
+# Terminal Colors
+# ===============
+# {{{
+Color_reset='\033[0m' # Reset
 
-installnodemac() {
-	brew install lua
-	brew install node
-	brew install yarn
+## Normal colors
+Black='\033[0;30m'  # Black
+White='\033[0;37m'  # White
+Red='\033[0;31m'    # Red
+Blue='\033[0;34m'   # Blue
+Cyan='\033[0;36m'   # Cyan
+Purple='\033[0;35m' # Purple
+Green='\033[0;32m'  # Green
+Yellow='\033[0;33m' # Yellow
+
+## Bold colors
+BBlack='\033[1;30m'  # Black
+BWhite='\033[1;37m'  # White
+BRed='\033[1;31m'    # Red
+BBlue='\033[1;34m'   # Blue
+BCyan='\033[1;36m'   # Cyan
+BPurple='\033[1;35m' # Purple
+BGreen='\033[1;32m'  # Green
+BYellow='\033[1;33m' # Yellow
+# }}}
+
+# Evil Nvim version
+EvilNvimVersion='1.0.1'
+# System OS
+System="$(uname -s)"
+
+# Terminal Output
+# ===============
+# {{{
+log() {
+    printf '%b\n' "$1" >&2
 }
 
-installnodeubuntu() {
-	sudo apt install nodejs
-	sudo apt install npm
+log_success() {
+    log "${Green}[✔]${Color_reset} ${1}${2}"
 }
 
-moveoldnvim() {
-	echo "Not installing Evil-Nvim"
-	echo "Please move your ~/.config/nvim folder before installing"
-	exit
+log_info() {
+    log "${Blue}[+]${Color_reset} ${1}${2}"
 }
 
-
-
-installnodearch() {
-	sudo pacman -S nodejs
-	sudo pacman -S npm
+log_error() {
+    log "${Red}[×]${Color_reset} ${1}${2}"
+    exit 1
 }
 
-installnodefedora() {
-    sudo dnf install -y nodejs 
-    sudo dnf install -y npm
+log_warn() {
+    log "${Yellow}[!]${Color_reset} ${1}${2}"
 }
 
-installnode() {
-	echo "Installing node..."
-	[ "$(uname)" == "Darwin" ] && installnodemac
-	[ -n "$(uname -a | grep Ubuntu)" ] && installnodeubuntu
-	[ -f "/etc/arch-release" ] && installnodearch
-	[ -f "/etc/fedora-release" ] && installnodefedora
-	[ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ] && echo "Windows not currently supported"
-	sudo npm i -g neovim
+pretty_echo() {
+    printf '%b\n' "$1$2$Color_reset" >&2
+}
+# }}}
+
+# Check requirements
+# ==================
+# {{{
+need_cmd() {
+    if ! hash "$1" &>/dev/null; then
+        log_error "Need '$1' (command not found)"
+        exit 1
+    fi
 }
 
-installpiponmac() {
-	sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-	python3 get-pip.py
-	rm get-pip.py
+check_cmd() {
+    if ! type "$1" &>/dev/null; then
+        log_warn "Need '$1' (command not found)"
+    fi
 }
 
-installpiponubuntu() {
-	sudo apt install python3-pip >/dev/null
+check_all() {
+    # Install Evil Nvim (see also git)
+    need_cmd 'curl'
+    # Clone repositories and install Evil Nvim
+    need_cmd 'git'
+    # Generate help tags
+    check_cmd 'ctags'
+    # Install Language Server Protocols
+    check_cmd 'npm'
+    check_cmd 'node'
 }
 
-installpiponarch() {
-	sudo pacman -S python-pip
+check_requirements() {
+    log_info "Checking requirements"
+
+    # Checks if git is installed again
+    if hash "git" &>/dev/null; then
+        git_version=$(git --version)
+        log_success "Check requirements : ${git_version}"
+    else
+        log_warn "Check requirements : git"
+    fi
+
+    # Checks if neovim is installed
+    if hash "nvim" &>/dev/null; then
+        log_success "Check requirements : nvim"
+    else
+        log_warn "Check requirements : nvim"
+    fi
+
+    # Check if nodejs and npm are installed again,
+    # we do not check only nodejs because some Linux distributions
+    # installs nodejs but not also npm
+    if hash "node" &>/dev/null; then
+        log_success "Check requirements : node"
+    else
+        log_warn "Check requirements : node (optional, required to use LSP)"
+    fi
+    if hash "npm" &>/dev/null; then
+        log_success "Check requirements : npm"
+    else
+        log_warn "Check requirements : npm (optional, required to use LSP)"
+    fi
+}
+# }}}
+
+# Neovim backup and installation of Evil Nvim
+# ===========================================
+# {{{
+backup_neovim() {
+    if [[ -d "$HOME/.config/nvim" ]]; then
+        if [[ "$(readlink $HOME/.config/nvim)" =~ \.config\/evil-nvim$ ]]; then
+            log_success "Installed Evil Nvim and some demons were released, be careful!"
+        else
+            mv "$HOME/.config/nvim" "$HOME/.config/nvim_bak"
+            log_success "Neovim backup is in $HOME/.config/nvim_bak"
+            ln -s "$HOME/.config/evil-nvim" "$HOME/.config/nvim"
+            log_success "Installed Evil Nvim and more demons were released!"
+        fi
+    else
+        mkdir -p "$HOME/.config"
+        ln -s "$HOME/.config/evil-nvim" "$HOME/.config/nvim"
+        log_success "Installed Evil Nvim and now there are demons everywhere, be careful!"
+    fi
+}
+# }}}
+
+# Evil Nvim updating
+# ==================
+# {{{
+update_repo() {
+    if [[ -d "$HOME/.config/evil-nvim" ]]; then
+        log_info "Updating evil-nvim ..."
+
+        cd "$HOME/.config/evil-nvim"
+        git pull
+        cd - >/dev/null 2>&1
+
+        log_success "Successfully updated evil-nvim, more demons were released in your terminal!"
+    else
+        log_info "Trying to clone evil-nvim ..."
+        git clone -q -b "$1" https://github.com/GustavoPrietoP/evil-nvim.git "$HOME/.config/-nvim"
+        if [ $? -eq 0 ]; then
+            log_success "Successfully cloned evil-nvim, some demons were released in your terminal!"
+        else
+            log_error "Failed to clone evil-nvim"
+            exit 0
+        fi
+    fi
 }
 
-installpiponfedora() {
-	sudo dnf install -y pip >/dev/null
+install_nvim_nightly() {
+    log_info "Installing Neovim Nightly AppImage ..."
+
+    curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+    chmod u+x nvim.appimage
+    mkdir -p $HOME/.local/bin
+    mv nvim.appimage $HOME/.local/bin/
+
+    if [ -f "$HOME/.zshrc" ]; then
+        echo "alias 'nvim'=$HOME/.local/bin/nvim.appimage" >>$HOME/.zshrc
+    else
+        echo "alias 'nvim'=$HOME/.local/bin/nvim.appimage" >>$HOME/.bashrc
+    fi
+
+    log_success "Successfully installed Neovim Nightly under $HOME/.local/bin/ directory"
 }
 
-installpip() {
-	echo "Installing pip..."
-	[ "$(uname)" == "Darwin" ] && installpiponmac
-	[ -n "$(uname -a | grep Ubuntu)" ] && installpiponubuntu
-	[ -f "/etc/arch-release" ] && installpiponarch
-	[ -f "/etc/fedora-release" ] && installpiponfedora
-	[ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ] && echo "Windows not currently supported"
+install_packer() {
+    if [[ ! -d "$HOME/.local/share/nvim/site/pack/packer/opt/packer.nvim" ]]; then
+        log_info "Installing packer.nvim ..."
+        git clone -q https://github.com/wbthomason/packer.nvim $HOME/.local/share/nvim/site/pack/packer/opt/packer.nvim
+        log_success "Successfully installed packer.nvim"
+    fi
 }
 
-installpynvim() {
-	echo "Installing pynvim..."
-	pip3 install pynvim --user
+install_fonts() {
+    if [[ ! -d "$HOME/.local/share/fonts" ]]; then
+        mkdir -p $HOME/.local/share/fonts
+    fi
+
+    download_font "Fira Code Regular Nerd Font Complete Mono.ttf"
+    log_info "Updating font cache, please wait ..."
+    if [ $System == "Darwin" ]; then
+        if [ ! -e "$HOME/Library/Fonts" ]; then
+            mkdir "$HOME/Library/Fonts"
+        fi
+        cp $HOME/.local/share/fonts/* $HOME/Library/Fonts/
+    else
+        fc-cache -fv >/dev/null
+        mkfontdir "$HOME/.local/share/fonts" >/dev/null
+        mkfontscale "$HOME/.local/share/fonts" >/dev/null
+    fi
+    log_success "Font cache done"
 }
 
-installpaq() {
-    git clone https://github.com/savq/paq-nvim.git \
-        "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/pack/paqs/opt/paq-nvim
+download_font() {
+    # Download patched Nerd Fonts
+    url="https://github.com/ryanoasis/nerd-fonts/raw/2.1.0/patched-fonts/FiraCode/Regular/complete/${1// /%20}"
+    download_path="$HOME/.local/share/fonts/$1"
+    if [[ -f "$download_path" && ! -s "$download_path" ]]; then
+        rm "$download_path"
+    fi
+
+    if [[ -f "$path" ]]; then
+        log_success "Downloaded $1"
+    else
+        log_info "Downloading $1 ..."
+        curl -sLo "$download_path" "$url"
+        log_success "Downloaded $1"
+    fi
 }
 
-cloneconfig() {
-	echo "Cloning Evil-Nvim configuration"
-    git clone https://github.com/GustavoPrietoP/evil-nvim.git ~/.config/nvim
-	# mv $HOME/.config/nvim/init.lua $HOME/.config/nvim/init.lua.tmp
-	# mv $HOME/.config/nvim/utils/init.lua $HOME/.config/nvim/init.lua
-	nvim -u $HOME/.config/nvim/init.lua +PaqInstall
-	# rm $HOME/.config/nvim/init.lua
-	# mv $HOME/.config/nvim/init.lua.tmp $HOME/.config/nvim/init.lua
+install_done() {
+    echo ""
+    pretty_echo ${Green} "=================================================="
+    pretty_echo ${Green} "   You are almost done. Start neovim to install   "
+    pretty_echo ${Green} "         the plugins and kill some demons.        "
+    pretty_echo ${Green} "                                                  "
+    pretty_echo ${Green} " Thanks for installing Evil Nvim, if you have any "
+    pretty_echo ${Green} "             issue, please report it :)           "
+    pretty_echo ${Green} "=================================================="
+}
+# }}}
+
+# Uninstall Evil Nvim
+# ===================
+# {{{
+uninstall() {
+    if [[ -d "$HOME/.config/nvim" ]]; then
+        if [[ "$(readlink $HOME/.config/nvim)" =~ \.config\/evil-nvim$ ]]; then
+            rm "$HOME/.config/nvim"
+            log_success "Uninstalled Evil Nvim"
+            if [[ -d "$HOME/.config/nvim_bak" ]]; then
+                mv "$HOME/.config/nvim_bak" "$HOME/.config/nvim"
+                log_success "Recovered $HOME/.config/nvim_bak backup"
+            fi
+        fi
+    fi
+
+    if [[ -d "$HOME/.config/evil-nvim" ]]; then
+        rm -rf "$HOME/.config/evil-nvim"
+        log_success "Completely uninstalled Evil Nvim and the demons have been disapeared"
+    fi
+}
+# }}}
+
+# Init banner
+# ===========
+# {{{
+welcome() {
+    pretty_echo ${BRed} "  =================     ===============     ===============   ========  ========"
+    pretty_echo ${BRed} "  \\\\\ . . . . . . .\\\\\   //. . . . . . .\\\\\   //. . . . . . .\\\\\  \\\\\. . .\\\\\// . . //"
+    pretty_echo ${BRed} "  ||. . ._____. . .|| ||. . ._____. . .|| ||. . ._____. . .|| || . . .\\/ . . .||"
+    pretty_echo ${BRed} "  || . .||   ||. . || || . .||   ||. . || || . .||   ||. . || ||. . . . . . . ||"
+    pretty_echo ${BRed} "  ||. . ||   || . .|| ||. . ||   || . .|| ||. . ||   || . .|| || . | . . . . .||"
+    pretty_echo ${BRed} "  || . .||   ||. _-|| ||-_ .||   ||. . || || . .||   ||. _-|| ||-_.|\ . . . . ||"
+    pretty_echo ${BYellow} "  ||. . ||   ||-'  || ||  \`-||   || . .|| ||. . ||   ||-'  || ||  \`|\_ . .|. .||"
+    pretty_echo ${BYellow} "  || . _||   ||    || ||    ||   ||_ . || || . _||   ||    || ||   |\ \`-_/| . ||"
+    pretty_echo ${BYellow} "  ||_-' ||  .|/    || ||    \|.  || \`-_|| ||_-' ||  .|/    || ||   | \  / |-_.||"
+    pretty_echo ${BYellow} "  ||    ||_-'      || ||      \`-_||    || ||    ||_-'      || ||   | \  / |  \`||"
+    pretty_echo ${BYellow} "  ||    \`'         || ||         \`'    || ||    \`'         || ||   | \  / |   ||"
+    pretty_echo ${BYellow} "  ||            .===' \`===.         .==='.\`===.         .===' /==. |  \/  |   ||"
+    pretty_echo ${BYellow} "  ||         .=='   \_|-_ \`===. .==='   _|_   \`===. .===' _-|/   \`==  \/  |   ||"
+    pretty_echo ${BYellow} "  ||      .=='    _-'    \`-_  \`='    _-'   \`-_    \`='  _-'   \`-_  /|  \/  |   ||"
+    pretty_echo ${BYellow} "  ||   .=='    _-'          '-__\._-'         '-_./__-'         \`' |. /|  |   ||"
+    pretty_echo ${BYellow} "  ||.=='    _-'                                                     \`' |  /==.||"
+    pretty_echo ${BRed} "  =='    _-'                                                            \/   \`=="
+    pretty_echo ${BRed} "  \   _-'                           N e o v i m                         \`-_    /"
+    pretty_echo ${BRed} "   \`''                                                                      \`\`' "
+    pretty_echo ${BYellow} "                   Version : ${EvilNvimVersion}               By : GustavoPrietoP "
+    echo ""
+}
+# }}}
+
+# Helper and execution
+# ====================
+# {{{
+helper() {
+    welcome
+    echo ""
+    pretty_echo ${BRed} "  Usage ./install.sh [OPTION]"
+    echo ""
+    pretty_echo ${BRed} "  OPTIONS:"
+    pretty_echo ${Yellow} "    -h --help                                    Displays this message"
+    pretty_echo ${Yellow} "    -c --check-requirements                      Check Evil Nvim requirements"
+    pretty_echo ${Yellow} "    -i --install                                 Install Evil Nvim"
+    pretty_echo ${Yellow} "    -d --install-dev                             Install Development version of Evil Nvim"
+    pretty_echo ${Yellow} "    -n --nightly                                 Install Neovim Nightly and Evil Nvim"
+    pretty_echo ${Yellow} "    -u --update                                  Update Evil Nvim"
+    pretty_echo ${Yellow} "    -v --version                                 Echo Evil Nvim version"
+    pretty_echo ${Yellow} "    -x --uninstall                               Uninstall Evil Nvim"
 }
 
-asktoinstallnode() {
-	echo "node not found"
-	echo -n "Would you like to install node now (y/n)? "
-	read answer
-	[ "$answer" != "${answer#[Yy]}" ] && installnode
+main() {
+    if [ $# -gt 0 ]; then
+        case $1 in
+        --check-requirements | -c)
+            welcome
+            check_requirements
+            exit 0
+            ;;
+        --update | -u)
+            welcome
+            update_repo
+            exit 0
+            ;;
+        --install | -i)
+            welcome
+            check_all
+            update_repo "main"
+            install_packer
+            install_fonts
+            backup_neovim
+            install_done
+            exit 0
+            ;;
+        --install-dev | -d)
+            welcome
+            check_all
+            update_repo "develop"
+            install_packer
+            install_fonts
+            backup_neovim
+            install_done
+            exit 0
+            ;;
+        --nvim-nightly | -n)
+            welcome
+            check_all
+            update_repo "main"
+            backup_neovim
+            install_nvim_nightly
+            install_done
+            exit 0
+            ;;
+        --help | -h)
+            helper
+            exit 0
+            ;;
+        --version | -v)
+            log "Evil Nvim v${EvilNvimVersion}"
+            exit 0
+            ;;
+        --uninstall | -x)
+            welcome
+            log_info "Uninstalling Evil Nvim ..."
+            uninstall
+            pretty_echo ${Green} "Thanks for using Evil Nvim, there are no more demons!"
+            exit 0
+            ;;
+        esac
+    else
+        # Run normal commands
+        welcome
+        check_all
+        update_repo "main"
+        backup_neovim
+        install_packer
+        install_fonts
+        check_requirements
+        install_done
+    fi
 }
 
-asktoinstallpip() {
-	# echo "pip not found"
-	# echo -n "Would you like to install pip now (y/n)? "
-	# read answer
-	# [ "$answer" != "${answer#[Yy]}" ] && installpip
-	echo "Please install pip3 before continuing with install"
-	exit
-}
-
-installonmac() {
-	brew install ripgrep fzf ranger
-	npm install -g tree-sitter-cli
-}
-
-pipinstallueberzug() {
-	which pip3 >/dev/null && pip3 install ueberzug || echo "Not installing ueberzug pip not found"
-}
-
-installonubuntu() {
-	sudo apt install ripgrep fzf ranger
-	sudo apt install libjpeg8-dev zlib1g-dev python-dev python3-dev libxtst-dev
-	pip3 install ueberzug
-	pip3 install neovim-remote
-	npm install -g tree-sitter-cli
-}
-
-installonarch() {
-	sudo pacman -S ripgrep fzf ranger
-	which yay >/dev/null && yay -S python-ueberzug-git || pipinstallueberzug
-	pip3 install neovim-remote
-	npm install -g tree-sitter-cli
-}
-
-installonfedora() {
-    sudo dnf groupinstall "X Software Development"
-    sudo dnf install -y fzf ripgrep ranger
-    pip3 install wheel ueberzug
-}
-
-installextrapackages() {
-	[ "$(uname)" == "Darwin" ] && installonmac
-	[ -n "$(uname -a | grep Ubuntu)" ] && installonubuntu
-	[ -f "/etc/arch-release" ] && installonarch
-	[ -f "/etc/fedora-release" ] && installonfedora
-	[ "$(expr substr $(uname -s) 1 10)" == "MINGW64_NT" ] && echo "Windows not currently supported"
-}
-
-# Welcome
-echo 'Installing Evil-Nvim'
-
-# move old nvim directory if it exists
-[ -d "$HOME/.config/nvim" ] && moveoldnvim
-
-# install pip
-which pip3 >/dev/null && echo "pip installed, moving on..." || asktoinstallpip
-
-# install node and neovim support
-which node >/dev/null && echo "node installed, moving on..." || asktoinstallnode
-
-# install pynvim
-pip3 list | grep pynvim >/dev/null && echo "pynvim installed, moving on..." || installpynvim
-
-
-if [ -a "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
-	echo 'packer already installed'
-else
-	installpaq
-fi
-
-if [ -a "$HOME/.config/nvim/init.lua" ]; then
-	echo 'Evil-Nvim already installed'
-else
-	# clone config down
-	cloneconfig
-	# echo 'export PATH=$HOME/.config/nvim/utils/bin:$PATH' >>~/.zshrc
-fi
-
-echo "I recommend you also install and activate a font from here: https://github.com/ryanoasis/nerd-fonts"
-
-# echo "I also recommend you add 'set preview_images_method ueberzug' to ~/.config/ranger/rc.conf"
+main $@
+# }}}
