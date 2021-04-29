@@ -1,5 +1,5 @@
-local nv_utils = {}
-function nv_utils.define_augroups(definitions) -- {{{1
+local evil_utils = {}
+function evil_utils.define_augroups(definitions) -- {{{1
    for group_name, definition in pairs(definitions) do
         vim.cmd('augroup ' .. group_name)
         vim.cmd('autocmd!')
@@ -13,7 +13,7 @@ function nv_utils.define_augroups(definitions) -- {{{1
     end
 end
 
-nv_utils.define_augroups({
+evil_utils.define_augroups({
     _general_settings = {
         {'TextYankPost', '*', 'lua require(\'vim.highlight\').on_yank({higroup = \'Search\', timeout = 200})'},
         {'BufWinEnter', '*', 'setlocal formatoptions-=c formatoptions-=r formatoptions-=o'},
@@ -30,125 +30,125 @@ nv_utils.define_augroups({
     }
 })
 
-function nv_utils.add_to_workspace_folder()
+function evil_utils.add_to_workspace_folder()
     vim.lsp.buf.add_workspace_folder()
 end
 
-function nv_utils.clear_references()
+function evil_utils.clear_references()
     vim.lsp.buf.clear_references()
 end
 
-function nv_utils.code_action()
+function evil_utils.code_action()
     vim.lsp.buf.code_action()
 end
 
-function nv_utils.declaration()
+function evil_utils.declaration()
     vim.lsp.buf.declaration()
     vim.lsp.buf.clear_references()
 end
 
-function nv_utils.definition()
+function evil_utils.definition()
     vim.lsp.buf.definition()
     vim.lsp.buf.clear_references()
 end
 
-function nv_utils.document_highlight()
+function evil_utils.document_highlight()
     vim.lsp.buf.document_highlight()
 end
 
-function nv_utils.document_symbol()
+function evil_utils.document_symbol()
     vim.lsp.buf.document_symbol()
 end
 
-function nv_utils.formatting()
+function evil_utils.formatting()
     vim.lsp.buf.formatting()
 end
 
-function nv_utils.formatting_sync()
+function evil_utils.formatting_sync()
     vim.lsp.buf.formatting_sync()
 end
 
-function nv_utils.hover()
+function evil_utils.hover()
     vim.lsp.buf.hover()
 end
 
-function nv_utils.implementation()
+function evil_utils.implementation()
     vim.lsp.buf.implementation()
 end
 
-function nv_utils.incoming_calls()
+function evil_utils.incoming_calls()
     vim.lsp.buf.incoming_calls()
 end
 
-function nv_utils.list_workspace_folders()
+function evil_utils.list_workspace_folders()
     vim.lsp.buf.list_workspace_folders()
 end
 
-function nv_utils.outgoing_calls()
+function evil_utils.outgoing_calls()
     vim.lsp.buf.outgoing_calls()
 end
 
-function nv_utils.range_code_action()
+function evil_utils.range_code_action()
     vim.lsp.buf.range_code_action()
 end
 
-function nv_utils.range_formatting()
+function evil_utils.range_formatting()
     vim.lsp.buf.range_formatting()
 end
 
-function nv_utils.references()
+function evil_utils.references()
     vim.lsp.buf.references()
     vim.lsp.buf.clear_references()
 end
 
-function nv_utils.remove_workspace_folder()
+function evil_utils.remove_workspace_folder()
     vim.lsp.buf.remove_workspace_folder()
 end
 
-function nv_utils.rename()
+function evil_utils.rename()
     vim.lsp.buf.rename()
 end
 
-function nv_utils.signature_help()
+function evil_utils.signature_help()
     vim.lsp.buf.signature_help()
 end
 
-function nv_utils.type_definition()
+function evil_utils.type_definition()
     vim.lsp.buf.type_definition()
 end
 
-function nv_utils.workspace_symbol()
+function evil_utils.workspace_symbol()
     vim.lsp.buf.workspace_symbol()
 end
 
 -- diagnostic
 
-function nv_utils.get_all()
+function evil_utils.get_all()
     vim.lsp.diagnostic.get_all()
 end
 
-function nv_utils.get_next()
+function evil_utils.get_next()
     vim.lsp.diagnostic.get_next()
 end
 
-function nv_utils.get_prev()
+function evil_utils.get_prev()
     vim.lsp.diagnostic.get_prev()
 end
 
-function nv_utils.goto_next()
+function evil_utils.goto_next()
     vim.lsp.diagnostic.goto_next()
 end
 
-function nv_utils.goto_prev()
+function evil_utils.goto_prev()
     vim.lsp.diagnostic.goto_prev()
 end
 
-function nv_utils.show_line_diagnostics()
+function evil_utils.show_line_diagnostics()
     vim.lsp.diagnostic.show_line_diagnostics()
 end
 
 -- misc
-function nv_utils.file_exists(name)
+function evil_utils.file_exists(name)
     local f = io.open(name, "r")
     if f ~= nil then
         io.close(f)
@@ -158,4 +158,4 @@ function nv_utils.file_exists(name)
     end
 end
 
-return nv_utils
+return evil_utils
