@@ -1,58 +1,77 @@
---  use `as` to alias a package name
--- use braces when passing an option
+local execute = vim.api.nvim_command
+local fn = vim.fn
 
-vim.cmd 'packadd paq-nvim'         -- Load package
+local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
-local paq = require'paq-nvim'.paq  -- Import module and bind `paq` function
+if fn.empty(fn.glob(install_path)) > 0 then
+    execute("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
+    execute "packadd packer.nvim"
+end
 
-paq{'savq/paq-nvim', opt=true}     -- Let Paq manage itself
--- Add your packages
-paq {'Vhyrro/neorg'}
--- Markdown
-paq {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
--- NvimTree
-paq {'kyazdani42/nvim-tree.lua'}
-paq {'kyazdani42/nvim-web-devicons'}
-paq {"liuchengxu/vim-which-key"}
--- Lsp
-paq {'neovim/nvim-lspconfig'}
-paq {'glepnir/lspsaga.nvim'}
-paq {'hrsh7th/nvim-compe'}
-paq {'mfussenegger/nvim-jdtls'}
-paq {'kabouzeid/nvim-lspinstall'}
-paq {'onsails/lspkind-nvim'}
-paq {'ray-x/lsp_signature.nvim'}
-paq {'hrsh7th/vim-vsnip'}
-paq {'mattn/emmet-vim'}
-paq {"rafamadriz/friendly-snippets"}
--- formater
-paq {'sbdchd/neoformat'}
--- Colorscheme
-paq {'christianchiarulli/nvcode-color-schemes.vim'}
-paq {'norcalli/nvim-colorizer.lua'}
-paq {'GustavoPrietoP/doom-one.vim'}
-paq {'bluz71/vim-nightfly-guicolors'}
-paq {'tanvirtin/monokai.nvim'}
--- Telescope
-paq {'nvim-lua/popup.nvim'}
-paq {'nvim-lua/plenary.nvim'}
-paq {'nvim-telescope/telescope.nvim'}
-paq {'kevinhwang91/nvim-bqf'}
-paq {'glepnir/dashboard-nvim'}
-paq {'nvim-telescope/telescope-project.nvim'}
--- LuaGuide
-paq {'nanotee/nvim-lua-guide'}
--- Autopairs
-paq {'windwp/nvim-autopairs'}
--- Thing at the top lol
-paq {'romgrk/barbar.nvim'}
--- Treesitter
-paq {'nvim-treesitter/nvim-treesitter'}
-paq {'GustavoPrietoP/nvim-ts-rainbow'}
-paq {'lukas-reineke/indent-blankline.nvim', branch='lua'}
--- Debugger
-paq {'mfussenegger/nvim-dap'}
--- Galaxy Line
-paq {'glepnir/galaxyline.nvim'}
--- Everyone needs a terminal
-paq {'akinsho/nvim-toggleterm.lua'}
+vim.cmd "autocmd BufWritePost plugins.lua PackerCompile"
+
+return require('packer').startup(function()
+    use 'wbthomason/packer.nvim'
+	-- Add your packages
+	use {'Vhyrro/neorg'}
+	-- Markdown
+	use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
+	-- NvimTree
+	use {'kyazdani42/nvim-tree.lua'}
+   	use {"ryanoasis/vim-devicons"}
+        use "kyazdani42/nvim-web-devicons"
+
+	use {"liuchengxu/vim-which-key"}
+	-- Lua
+   -- use {
+   --   "folke/which-key.nvim",
+   --   config = function()
+   --     require("which-key").setup {
+   --       -- your configuration comes here
+   --       -- or leave it empty to use the default settings
+   --       -- refer to the configuration section below
+   --     }
+   --   end
+   -- }
+	-- Lsp
+	use {'neovim/nvim-lspconfig'}
+	use {'glepnir/lspsaga.nvim'}
+	use {'hrsh7th/nvim-compe'}
+	use {'mfussenegger/nvim-jdtls'}
+	use {'kabouzeid/nvim-lspinstall'}
+	use {'onsails/lspkind-nvim'}
+	use {'ray-x/lsp_signature.nvim'}
+	use {'hrsh7th/vim-vsnip'}
+	use {'mattn/emmet-vim'}
+	use {"rafamadriz/friendly-snippets"}
+	-- Colorscheme
+	use {'christianchiarulli/nvcode-color-schemes.vim'}
+	use {'norcalli/nvim-colorizer.lua'}
+	use {'GustavoPrietoP/doom-one.vim'}
+	use {'bluz71/vim-nightfly-guicolors'}
+	use {'tanvirtin/monokai.nvim'}
+    	use {'GustavoPrietoP/nvim-ts-rainbow'}
+	-- Telescope
+	use {'nvim-lua/popup.nvim'}
+	use {'nvim-lua/plenary.nvim'}
+	use {'nvim-telescope/telescope.nvim'}
+	use {'kevinhwang91/nvim-bqf'}
+	use {'glepnir/dashboard-nvim'}
+	use {'nvim-telescope/telescope-project.nvim'}
+	-- LuaGuide
+	use {'nanotee/nvim-lua-guide'}
+	-- Autopairs
+	use {'windwp/nvim-autopairs'}
+	-- Thing at the top lol
+	use {'romgrk/barbar.nvim'}
+	-- Treesitter
+	use {'nvim-treesitter/nvim-treesitter'}
+	use {'lukas-reineke/indent-blankline.nvim', branch='lua'}
+	-- Debugger
+	use {'mfussenegger/nvim-dap'}
+	-- Galaxy Line
+	use {'glepnir/galaxyline.nvim'}
+	-- Everyone needs a terminal
+	use {'akinsho/nvim-toggleterm.lua'}
+end)
+
