@@ -1,0 +1,140 @@
+-- false = not enabled
+-- true = enabled
+-- if value = string, it expects a string
+-- if value = int, it expects a non-negative number
+----------------------
+evil = {
+    -- change colorscheme
+    scheme = "doom-one",
+
+    -- background color
+    scheme_bg = "dark",
+
+    -- set number, if using this with relative, it shows your current line number instead of a 0
+    number = true,
+
+    -- set relative numbers
+    relative = true,
+
+    -- wrap text
+    wrap = false,
+    
+    -- enable mouse
+    mouse = false,
+
+    -- Enable autosave
+    autosave = false,
+
+    -- hidden buffers
+    hidden = true,
+
+    -- show title
+    title = true,
+
+    -- clipboard outside vim
+    clipboard = true,
+
+    -- automatically split below (horizontal)
+    split_below = true,
+    
+    -- automatically split right (vertical)
+    split_right = true,
+
+    -- shows indent lines
+    indent_lines = true,
+
+    -- smart indent
+    smart_indent = true,
+
+    -- show mode
+    showmode = false,
+
+    -- Format on-save
+    format_onsave = false,
+
+    -- Preserves last editing cursor position
+    session_preserve_cursor = false,
+
+    -- auto save sessions
+    session_autosave = false,
+
+    color_column = false,
+    column_value = "80",
+
+    -- enable guicolors
+    termcolors = true,
+
+    -- show current line highlighting
+    line_highlight = true,
+
+    -- check for paq updates on start
+    check_updates = false,
+
+    -- convert tab to spaces  (false: if hittig tab, you wont be able to move individual spaces)
+    expand_tabs = true,
+
+    -- autoindent
+    autoindent = true,
+
+	-- scroll off
+	scrolloff = true,
+	scrolloff_count = 4,
+
+    -- change cmd height
+    cmdheight = 1,
+
+    -- faster completion
+    update_time = 300,
+
+    timeout_len = 500,
+    
+    -- popup size
+    pum_height = 10,
+    
+    -- markdown shows ``
+    conceallevel = 0,
+
+    -- always show tabs
+    labline = 2,
+
+    -- indent spaces
+    indent_spaces = 4,
+
+    -- softtabstop
+    soft_tabstop = 4,
+
+    -- tabstop
+    tabstop = 4,
+
+    -- Enable Syntax highlighting
+    syntax = "on",
+
+    -- title string
+    titlestring = "%<%F%=%l/%L - nvim",
+
+    -- set gui font
+    guifont = "SauceCodePro Nerd Font:h15",
+
+    -- 256 color support
+    color_support = "256",
+
+    -- signcolumn (recommended)
+    sign_column = "yes",
+
+    --[[
+    set treesitter parsers
+    Default: `all`
+    example:
+    ensure_installed = {"python", "javscript"}
+    ignore)install = {"rust"}
+    --]]
+    treesitter = {
+        ensure_installed = "all",
+        ignore_install = {""},
+        highlight = {enabled = true}, -- treesitter highlight
+        rainbow = {enabled = true} -- rainbow parenthesis
+    },
+
+}
+DATA_PATH = vim.fn.stdpath('data')
+DIAGNOSTIC = {virtual_text = true, signs = true, underline = true}
