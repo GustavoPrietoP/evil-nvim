@@ -122,7 +122,7 @@ nvim_lsp["lua"].setup {
     on_attach = on_attach,
     settings = {
         Lua = {
-            diagnostics = {globals = {"vim", "use"}},
+            diagnostics = {globals = {"vim", "use"}, disable = {"lowercase-global", "undefined-global"}},
             workspace = {
                 library = {
                     [vim.fn.expand("$VIMRUNTIME/lua")] = true,
