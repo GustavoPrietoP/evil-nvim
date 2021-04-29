@@ -1,21 +1,8 @@
--- leader Key ( i like space)
-vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', { noremap = true, silent = true})
+-- leader
+vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true})
 vim.g.mapleader = ' '
-
-
 -- no hl because its annoying
 vim.api.nvim_set_keymap('n', '<Leader>th', ':nohl<CR>', { noremap = true, silent = true })
-function setup_tabs()
-    -- Set up indenting
-    vim.bo.expandtab = true
-    vim.bo.copyindent = true
-    vim.bo.shiftwidth = 4
-    vim.bo.tabstop = 4
-    vim.bo.softtabstop = 4
-    vim.bo.autoindent = true
-    vim.bo.smartindent = true
-end
-vim.cmd [[ autocmd FileType * :lua setup_tabs() ]]
 -- explorer
 --vim.api.nvim_set_keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 -- better window movement (Fast i guess)
@@ -54,9 +41,9 @@ vim.cmd("nnoremap <silent> <leader> :WhichKey '<Space>'<CR>")
 
 -- tab complete
 --vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
---im.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
---im.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
---im.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
 -- Markdown Preview keybindings
 vim.cmd('nmap <C-m> <Plug>MarkdownPreviewToggle')
