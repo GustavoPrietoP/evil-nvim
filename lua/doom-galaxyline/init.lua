@@ -46,6 +46,7 @@ gls.left[4] ={
         highlight = {require('galaxyline.provider_fileinfo').get_file_icon_color,colors.bg},
     },
 }
+
 gls.left[5] = {
     FileName = {
         provider = 'FileName',
