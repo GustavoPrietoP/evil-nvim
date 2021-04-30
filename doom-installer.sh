@@ -162,7 +162,7 @@ update_repo() {
         log_success "Successfully updated evil-nvim, more demons were released in your terminal!"
     else
         log_info "Trying to clone evil-nvim ..."
-        git clone -q -b "$1" https://github.com/GustavoPrietoP/evil-nvim.git "$HOME/.config/-nvim"
+        git clone -q -b "$1" https://github.com/GustavoPrietoP/evil-nvim.git "$HOME/.config/nvim"
         if [ $? -eq 0 ]; then
             log_success "Successfully cloned evil-nvim, some demons were released in your terminal!"
         else
