@@ -20,7 +20,7 @@ evil = {
     wrap = false,
     
     -- enable mouse
-    mouse = false,
+    mouse = true,
 
     -- Enable autosave
     autosave = false,

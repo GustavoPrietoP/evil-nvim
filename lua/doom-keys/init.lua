@@ -1,4 +1,5 @@
-require("which-key").setup {
+local wk = require("which-key")
+wk.setup{
     plugins = {
         marks = false, -- shows a list of your marks on ' and `
         registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -19,19 +20,13 @@ require("which-key").setup {
         separator = "➜", -- symbol used between a key and it's label
         group = "+" -- symbol prepended to a group
     },
-    window = {
-        border = "double", -- none, single, double, shadow
-        position = "bottom", -- bottom, top
-        margin = {1, 0, 1, 0}, -- extra window margin [top, right, bottom, left]
-        padding = {2, 2, 2, 2} -- extra window padding [top, right, bottom, left]
-    },
-    layout = {
-        height = {min = 4, max = 25}, -- min and max height of the columns
-        width = {min = 20, max = 50}, -- min and max width of the columns
-        spacing = 3 -- spacing between columns
-    },
+    window = { padding = { 0, 0, 0, 0 } },
+    layout = { height = { min = 1, max = 10 } },
+
     hidden = {"<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ "}, -- hide mapping boilerplate
-    show_help = true -- show help message on the command line when the popup is visible
+    show_help = false, -- show help message on the command line when the popup is visible
+    triggers = {"<leader>"}, -- automatically setup triggers
+  -- triggers = {"<leader>"} -- or specifiy a list manually
 }
 
 local opts = {
@@ -46,6 +41,20 @@ local opts = {
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true})
 vim.g.mapleader = ' '
 
+-- Plugin Menu
+vim.api.nvim_set_keymap('n', '<Leader>pc', ':PackerClean<CR>', {noremap  = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>pi', ':PackerInstall<CR>', {noremap  = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>pu', ':PackerUpdate<CR>', {noremap  = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>ps', ':PackerSync<CR>', {noremap  = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>pl', ':luafile %<CR>', {noremap  = true, silent = true})
+
+-- Buffer order
+vim.api.nvim_set_keymap('n', '<Leader>od', ':BufferOrderByDirectory%<CR>', {noremap  = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>ol', ':BufferOrderByLanguage%<CR>', {noremap  = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>ob', ':BufferMoveNext%<CR>', {noremap  = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>op', ':BufferMovePrevious%<CR>', {noremap  = true, silent = true})
+
+
 -- Fuzzy Finder just because
 vim.api.nvim_set_keymap('n', '<Leader>sl', ':SessionLoad<CR>', {noremap  = true, silent = true})
 vim.api.nvim_set_keymap('n', '<Leader>ss', ':SessionSave<CR>', {noremap = true, silent = true})
@@ -56,6 +65,8 @@ vim.api.nvim_set_keymap('n', '<Leader>fg', ':Telescope live_grep<CR>', {noremap 
 vim.api.nvim_set_keymap('n', '<Leader>ft', ':Telescope help_tags<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<Leader>fb', ':Telescope marks<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<Leader>fp', ":lua require'telescope'.extensions.project.project{}<CR>", {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>tc', ':DashboardChangeColorscheme<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>ft', ':Dashboard<CR>', {noremap = true, silent = true})
 
 -- terminal
 vim.api.nvim_set_keymap('n', '<Leader>tt', ':ToggleTerm<CR>', {silent = true})
@@ -82,30 +93,16 @@ vim.api.nvim_set_keymap('n', '<Leader>bn', ':BufferNext<CR>', {noremap = true, s
 vim.api.nvim_set_keymap('n', '<Leader>bP', ':BufferPick<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<Leader>bp', ':BufferPrevious<CR>', {noremap = true, silent = true})
 
--- TODO create entire treesitter section
+-- Evil
+vim.api.nvim_set_keymap('n', '<Leader>e', ':e ~/.config/nvim/evilrc<CR>', {noremap = true, silent = true})
 
 local mappings = {
+    ["e"] = "Evil",
+    ["p"] = "Plugin Menu",
+    ["o"] = "Order Menu",
+
     b = {
         name = "+buffer",
-    },
-    d = {
-        name = "+Debug",
-        b = {"<cmd>DebugToggleBreakpoint<cr>", "Toggle Breakpoint"},
-        c = {"<cmd>DebugContinue<cr>", "Continue"},
-        i = {"<cmd>DebugStepInto<cr>", "Step Into"},
-        o = {"<cmd>DebugStepOver<cr>", "Step Over"},
-        r = {"<cmd>DebugToggleRepl<cr>", "Toggle Repl"},
-        s = {"<cmd>DebugStart<cr>", "Start"}
-    },
-    g = {
-        name = "+Git",
-        j = {"<cmd>NextHunk<cr>", "Next Hunk"},
-        k = {"<cmd>PrevHunk<cr>", "Prev Hunk"},
-        p = {"<cmd>PreviewHunk<cr>", "Preview Hunk"},
-        r = {"<cmd>ResetHunk<cr>", "Reset Hunk"},
-        R = {"<cmd>ResetBuffer<cr>", "Reset Buffer"},
-        s = {"<cmd>StageHunk<cr>", "Stage Hunk"},
-        u = {"<cmd>UndoStageHunk<cr>", "Undo Stage Hunk"}
     },
     f = {
         name = "+file",
@@ -137,26 +134,14 @@ local mappings = {
     },
     t = {
         name = "+toggle",
+        c = "Colorscheme",
         e = "Tree explorer",
         h = "No highlight",
-        t = "Terminal",
         l = "Line numbers",
+        t = "Terminal",
+        s = "Open Start screen",
     },
-    s = {
-        name = "+Search",
-        b = {"<cmd>Telescope git_branches<cr>", "File"},
-        c = {"<cmd>Telescope colorscheme<cr>", "Colorscheme"},
-        d = {"<cmd>Telescope lsp_document_diagnostics<cr>", "Document Diagnostics"},
-        D = {"<cmd>Telescope lsp_workspace_diagnostics<cr>", "Workspace Diagnostics"},
-        f = {"<cmd>Telescope find_files<cr>", "Find File"},
-        m = {"<cmd>Telescope marks<cr>", "Marks"},
-        M = {"<cmd>Telescope man_pages<cr>", "Man Pages"},
-        r = {"<cmd>Telescope oldfiles<cr>", "Open Recent File"},
-        R = {"<cmd>Telescope registers<cr>", "Registers"},
-        t = {"<cmd>Telescope live_grep<cr>", "Text"}
-    },
-    S = {name = "+Session", s = {"<cmd>SessionSave<cr>", "Save Session"}, l = {"<cmd>SessionLoad<cr>", "Load Session"}}
+    s = {name = "+session", s = {"<cmd>SessionSave<cr>", "Save Session"}, l = {"<cmd>SessionLoad<cr>", "Load Session"}}
 }
 
-local wk = require("which-key")
 wk.register(mappings, opts)

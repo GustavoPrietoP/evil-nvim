@@ -34,7 +34,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 -- Signature help
 require('lsp_signature').on_attach()
 
--- Vscode-like pictograms on completion
 require('lspkind').init({
     with_text = true,
     symbol_map = {

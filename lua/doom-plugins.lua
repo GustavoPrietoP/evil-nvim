@@ -14,30 +14,18 @@ return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
 	-- Add your packages
 	use {'Vhyrro/neorg'}
-	-- Markdown
-	use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install'}
 	-- NvimTree
 	use {'kyazdani42/nvim-tree.lua'}
    	use {"ryanoasis/vim-devicons"}
     use "kyazdani42/nvim-web-devicons"
+    -- Lua
+    use { "folke/which-key.nvim" }
 
-	use {"liuchengxu/vim-which-key"}
-	-- Lua
-    --use {
-    --  "folke/which-key.nvim",
-    --  config = function()
-    --    require("which-key").setup {
-    --      -- your configuration comes here
-    --      -- or leave it empty to use the default settings
-    --      -- refer to the configuration section below
-    --    }
-    --  end
-    --}
+--	use {"liuchengxu/vim-which-key"}
 	-- Lsp
 	use {'neovim/nvim-lspconfig'}
 	use {'glepnir/lspsaga.nvim'}
 	use {'hrsh7th/nvim-compe'}
-	use {'mfussenegger/nvim-jdtls'}
 	use {'kabouzeid/nvim-lspinstall'}
 	use {'onsails/lspkind-nvim'}
 	use {'ray-x/lsp_signature.nvim'}
@@ -48,9 +36,7 @@ return require('packer').startup(function()
 	use {'christianchiarulli/nvcode-color-schemes.vim'}
 	use {'norcalli/nvim-colorizer.lua'}
 	use {'GustavoPrietoP/doom-one.vim'}
-	use {'bluz71/vim-nightfly-guicolors'}
-	use {'tanvirtin/monokai.nvim'}
-    	use {'GustavoPrietoP/nvim-ts-rainbow'}
+    use {'GustavoPrietoP/nvim-ts-rainbow'}
 	-- Telescope
 	use {'nvim-lua/popup.nvim'}
 	use {'nvim-lua/plenary.nvim'}
@@ -62,16 +48,20 @@ return require('packer').startup(function()
 	use {'nanotee/nvim-lua-guide'}
 	-- Autopairs
 	use {'windwp/nvim-autopairs'}
-	-- Thing at the top lol
+	-- top bar
 	use {'romgrk/barbar.nvim'}
 	-- Treesitter
 	use {'nvim-treesitter/nvim-treesitter'}
 	use {'lukas-reineke/indent-blankline.nvim', branch='lua'}
-	-- Debugger
-	use {'mfussenegger/nvim-dap'}
 	-- Galaxy Line
 	use {'glepnir/galaxyline.nvim'}
 	-- Everyone needs a terminal
 	use {'akinsho/nvim-toggleterm.lua'}
 end)
+
+
+
+
+
+
 

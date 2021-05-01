@@ -1,4 +1,3 @@
--- leader
 vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true})
 vim.g.mapleader = ' '
 -- no hl because its annoying
@@ -35,10 +34,6 @@ vim.api.nvim_set_keymap('n', '<Leader>ft', ':Telescope help_tags<CR>', {noremap 
 vim.api.nvim_set_keymap('n', '<Leader>fb', ':Telescope marks<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<Leader>fp', ":lua require'telescope'.extensions.project.project{}<CR>", {noremap = true, silent = true})
 
--- whichkey
-vim.cmd("nnoremap <silent> <leader> :WhichKey '<Space>'<CR>")
-
-
 -- tab complete
 --vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
@@ -47,7 +42,6 @@ vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
 
 -- Markdown Preview keybindings
 vim.cmd('nmap <C-m> <Plug>MarkdownPreviewToggle')
-
 --============================--
 -- Splits resizing keymappings--
 --============================--
