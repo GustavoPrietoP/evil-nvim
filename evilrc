@@ -25,7 +25,7 @@ evil = {
     -- Enable autosave
     autosave = false,
 
-    -- hidden buffers
+    -- hidden buffers (recommended to be able to switch buffers without having to save)
     hidden = true,
 
     -- show title

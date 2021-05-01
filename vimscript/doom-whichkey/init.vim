@@ -69,18 +69,21 @@ let g:lmap.b.p = 'Previous buffer'
 
 "}}}
 
+
 " Plugin Menu---------------------------------------------------------{{{
 let g:lmap.p = {'name': 'Plugin Menu'}
 " Clean disabled or unused plugins
-nnoremap <silent> <leader>pc :PaqClean<CR>
+nnoremap <silent> <leader>pc :PackerClean<CR>
 let g:lmap.p.c = 'Clean disabled or unused plugins'
 " Install missing plugins
-nnoremap <silent> <leader>pi :PaqInstall<CR>
+nnoremap <silent> <leader>pi :PackerInstall<CR>
 let g:lmap.p.i = 'Install missing plugins'
 " Performs PackerClean and then PackerUpdate
 " Update your plugins
-nnoremap <silent> <leader>pu :PaqUpdate<CR>
+nnoremap <silent> <leader>pu :PackerUpdate<CR>
 let g:lmap.p.u = 'Update your plugins'
+nnoremap <silent> <leader>ps :PackerSync<CR>
+let g:lmap.p.u = 'PackerClean and PackerSync'
 " Source your lua file
 nnoremap <silent> <leader>pl :luafile %<CR>
 let g:lmap.p.l = 'Source your lua file'
@@ -113,7 +116,7 @@ let g:lmap.f.g = 'Find word'
 " Help tags
 let g:lmap.f.t = 'Telescope Tags'
 " Private Configuration
-let g:lmap.f.P = 'Open Private Configuration'
+let g:lmap.f.P = 'Open Public Configuration'
 " Private Configuration
 let g:lmap.f.p = 'Open Project'
 " Recently opened files

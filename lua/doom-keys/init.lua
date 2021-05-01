@@ -1,7 +1,7 @@
 require("which-key").setup {
     plugins = {
-        marks = true, -- shows a list of your marks on ' and `
-        registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+        marks = false, -- shows a list of your marks on ' and `
+        registers = false, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
         -- the presets plugin, adds help for a bunch of default keybindings in Neovim
         -- No actual key bindings are created
         presets = {
@@ -20,7 +20,7 @@ require("which-key").setup {
         group = "+" -- symbol prepended to a group
     },
     window = {
-        border = "single", -- none, single, double, shadow
+        border = "double", -- none, single, double, shadow
         position = "bottom", -- bottom, top
         margin = {1, 0, 1, 0}, -- extra window margin [top, right, bottom, left]
         padding = {2, 2, 2, 2} -- extra window padding [top, right, bottom, left]
@@ -85,11 +85,9 @@ vim.api.nvim_set_keymap('n', '<Leader>bp', ':BufferPrevious<CR>', {noremap = tru
 -- TODO create entire treesitter section
 
 local mappings = {
-    ["/"] = "Comment",
-    ["c"] = "Close Buffer",
-    ["e"] = "Explorer",
-    ["f"] = "Find File",
-    ["h"] = "No Highlight",
+    b = {
+        name = "+buffer",
+    },
     d = {
         name = "+Debug",
         b = {"<cmd>DebugToggleBreakpoint<cr>", "Toggle Breakpoint"},
@@ -109,6 +107,16 @@ local mappings = {
         s = {"<cmd>StageHunk<cr>", "Stage Hunk"},
         u = {"<cmd>UndoStageHunk<cr>", "Undo Stage Hunk"}
     },
+    f = {
+        name = "+file",
+        f = {"<cmd>Telescope find_files<cr>", "Find file"},
+        b = {"<cmd>Telescope marks<cr>", "Bookmarks"},
+        g = {"<cmd>Telescope live_grep<cr>", "Find word"},
+        t = {"<cmd>Telescope help_tags<cr>", "Telescope Tags"},
+        P = {"<cmd>e ~/.config/nvim/lua/doom-settings.lua<cr>", "Open Private Configuration"},
+        p = {"<cmd>lua require'telescope'.extensions.project.project{}<cr>", "Open Project"},
+        r = {"<cmd>Telescope oldfiles<cr>", "Recently opened files"}
+    },
     l = {
         name = "+code",
         a = {"<cmd>Lspsaga code_action<cr>", "Code Action"},
@@ -127,7 +135,13 @@ local mappings = {
         s = {"<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols"},
         S = {"<cmd>Telescope lsp_workspace_symbols<cr>", "Workspace Symbols"}
     },
-
+    t = {
+        name = "+toggle",
+        e = "Tree explorer",
+        h = "No highlight",
+        t = "Terminal",
+        l = "Line numbers",
+    },
     s = {
         name = "+Search",
         b = {"<cmd>Telescope git_branches<cr>", "File"},

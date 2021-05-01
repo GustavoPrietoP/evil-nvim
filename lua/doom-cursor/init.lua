@@ -1,0 +1,8 @@
+vim.cmd('hi Search guibg=#2257a0')
+vim.cmd('hi Search gui=bold guifg=#dededf')
+vim.cmd('highlight IncSearch gui=bold guifg=#dededf guibg=#2257a0')
+vim.cmd('highlight nCursor guibg=#51afef')
+vim.cmd('set guicursor=n-v-c-i:block-nCursor')
+vim.cmd('set guicursor+=i:ver25-nCursor')
+vim.cmd('set guicursor+=o:hor50-nCursor')
+vim.cmd('highlight CursorLine guibg=#21252a')
