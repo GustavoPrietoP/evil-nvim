@@ -21,6 +21,8 @@ return require('packer').startup(function()
     -- Lua
     use { "folke/which-key.nvim" }
 
+    use {'simrat39/symbols-outline.nvim'}
+
 --	use {"liuchengxu/vim-which-key"}
 	-- Lsp
 	use {'neovim/nvim-lspconfig'}
@@ -57,6 +59,7 @@ return require('packer').startup(function()
 	use {'glepnir/galaxyline.nvim'}
 	-- Everyone needs a terminal
 	use {'akinsho/nvim-toggleterm.lua'}
+    
 end)
 
 

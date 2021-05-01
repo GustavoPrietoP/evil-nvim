@@ -51,3 +51,20 @@ end
 if evil.mouse == true then
     vim.o.mouse = "a"
 end
+
+if evil.session_autosave == true then
+    vim.cmd("SessionSave")
+end
+
+if evil.hidden_files == true then
+    vim.g.nvim_tree_hide_dotfiles = 1
+else
+    vim.g.nvim_tree_hide_dotfiles = 0
+end
+
+if evil.tree_side == "right" then
+    vim.cmd("let g:nvim_tree_side = 'right'")
+else
+    vim.cmd("let g:nvim_tree_side = 'left'")
+end
+

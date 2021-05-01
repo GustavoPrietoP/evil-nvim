@@ -16,6 +16,12 @@ evil = {
     -- set relative numbers
     relative = true,
 
+    -- file tree side
+    tree_side = "left",
+
+    -- show hidden files in tree
+    hidden_files = true,
+
     -- wrap text
     wrap = false,
     
@@ -46,7 +52,7 @@ evil = {
     -- smart indent
     smart_indent = true,
 
-    -- show mode
+    -- show mode ex: --INSERT-- --NORMAL--
     showmode = false,
 
     -- Format on-save
@@ -67,8 +73,8 @@ evil = {
     -- show current line highlighting
     line_highlight = true,
 
-    -- check for paq updates on start
-    check_updates = false,
+    -- check for Packer updates on start
+    check_updates = true,
 
     -- convert tab to spaces  (false: if hittig tab, you wont be able to move individual spaces)
     expand_tabs = true,
@@ -76,9 +82,9 @@ evil = {
     -- autoindent
     autoindent = true,
 
-	-- scroll off
-	scrolloff = true,
-	scrolloff_count = 4,
+    -- scroll off
+    scrolloff = true,
+    scrolloff_count = 4,
 
     -- change cmd height
     cmdheight = 1,
