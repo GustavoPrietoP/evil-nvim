@@ -2,7 +2,6 @@
 #================================================
 # install.sh - Evil Nvim Installation Script
 # Author: NTBBloodbath (all credit goes to him for this install script)
-# License: MIT
 #================================================
 
 # Terminal Colors
