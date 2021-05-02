@@ -70,6 +70,7 @@ In order to get your desired language support (autocomplete, diagnostics, code a
 
 # Dope People
 - [hlissner](https://github.com/hlissner) for Doom Emacs :heart:
+- [NTBBloodbath](https://github.com/NTBBloodbath) for doom-nvim :purple_heart:
 - [Chris](https://github.com/ChristianChiarulli) for the colorschemes and helping with the configs :sunglasses:
 # Themes 
 [Doom One](https://github.com/GustavoPrietoP/doom-one.vim) (My Fork) \

@@ -59,7 +59,6 @@ return require('packer').startup(function()
 	use {'glepnir/galaxyline.nvim'}
 	-- Everyone needs a terminal
 	use {'akinsho/nvim-toggleterm.lua'}
-    
 end)
 
 
