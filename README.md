@@ -11,6 +11,10 @@
 
 ---
 
+### Archived
+Currently not working on this project anymore. I am now working on [doom-nvim](https://github.com/NTBBloodbath/doom-nvim) with a friend of mines and if you want something similar *and better* to evil-nvim, i highly recommend giving doom-nvim a go :)
+
+
 ### Table of Contents
 
 - [Introduction](#introduction)
